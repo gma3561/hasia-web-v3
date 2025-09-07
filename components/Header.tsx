@@ -61,24 +61,37 @@ export default function Header() {
               onClick={() => setLanguage(language === "EN" ? "KO" : "EN")}
               className="flex items-center gap-1 px-3 py-1 border border-white/30 rounded-full hover:border-white/60 transition-colors text-sm"
             >
-              <span className={language === "EN" ? "text-white/60" : "font-bold text-white"}>KO</span>
+              <span className={language === "KO" ? "font-bold text-white" : "text-white/60"}>KO</span>
               <span className="text-white/40">|</span>
               <span className={language === "EN" ? "font-bold text-white" : "text-white/60"}>EN</span>
             </button>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2"
-            aria-label="메뉴"
-          >
-            <div className="w-6 h-5 relative flex flex-col justify-between">
-              <span className={`block h-0.5 w-full bg-white transition-all ${isMobileMenuOpen ? "rotate-45 translate-y-2" : ""}`} />
-              <span className={`block h-0.5 w-full bg-white transition-all ${isMobileMenuOpen ? "opacity-0" : ""}`} />
-              <span className={`block h-0.5 w-full bg-white transition-all ${isMobileMenuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
-            </div>
-          </button>
+          {/* Mobile Right Side */}
+          <div className="md:hidden flex items-center gap-3">
+            {/* Language Toggle for Mobile - Outside Menu */}
+            <button
+              onClick={() => setLanguage(language === "EN" ? "KO" : "EN")}
+              className="flex items-center gap-1 px-2 py-1 border border-white/30 rounded-full hover:border-white/60 transition-colors text-xs"
+            >
+              <span className={language === "KO" ? "font-bold text-white" : "text-white/60"}>KO</span>
+              <span className="text-white/40">|</span>
+              <span className={language === "EN" ? "font-bold text-white" : "text-white/60"}>EN</span>
+            </button>
+            
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="p-2"
+              aria-label="메뉴"
+            >
+              <div className="w-6 h-5 relative flex flex-col justify-between">
+                <span className={`block h-0.5 w-full bg-white transition-all ${isMobileMenuOpen ? "rotate-45 translate-y-2" : ""}`} />
+                <span className={`block h-0.5 w-full bg-white transition-all ${isMobileMenuOpen ? "opacity-0" : ""}`} />
+                <span className={`block h-0.5 w-full bg-white transition-all ${isMobileMenuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+              </div>
+            </button>
+          </div>
         </div>
 
         {/* Mobile Menu */}
@@ -106,16 +119,6 @@ export default function Header() {
               >
                 {t("nav.contact")}
               </Link>
-              
-              {/* Language Toggle for Mobile */}
-              <button
-                onClick={() => setLanguage(language === "EN" ? "KO" : "EN")}
-                className="flex items-center justify-center gap-1 px-3 py-2 border border-white/30 rounded-full hover:border-white/60 transition-colors text-sm"
-              >
-                <span className={language === "KO" ? "font-bold text-white" : "text-white/60"}>KO</span>
-                <span className="text-white/40">|</span>
-                <span className={language === "EN" ? "font-bold text-white" : "text-white/60"}>EN</span>
-              </button>
             </div>
           </div>
         )}

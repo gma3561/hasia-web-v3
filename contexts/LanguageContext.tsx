@@ -160,7 +160,7 @@ const translations = {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguage] = useState<Language>("EN");
+  const [language, setLanguage] = useState<Language>("KO");
 
   const t = (key: string): string => {
     return (translations[language] as any)[key] || key;
