@@ -124,7 +124,7 @@ const tomorrow = new Promise((resolve) => {
           </h1>
 
           {/* Subtitle */}
-          <p className="text-lg sm:text-xl md:text-2xl text-white/60 text-center max-w-3xl mx-auto mb-4">
+          <p className="text-lg sm:text-xl md:text-2xl text-white/60 text-center max-w-3xl mx-auto mb-4 font-bold">
             {t("hero.subtitle")}
           </p>
           
