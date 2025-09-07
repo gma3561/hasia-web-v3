@@ -177,7 +177,7 @@ export default function ContactSection() {
                 </div>
 
                 {/* Response Time */}
-                <div className="p-6 bg-white/[0.02] rounded-xl border border-white/[0.05]">
+                <div className="p-6 bg-green-500/[0.08] rounded-xl border border-green-500/20">
                   <h4 className="text-primary-light font-medium mb-2">{t("contact.response.title")}</h4>
                   <p className="text-3xl font-bold text-white mb-2">{t("contact.response.time")}</p>
                   <p className="text-white/50 text-sm">

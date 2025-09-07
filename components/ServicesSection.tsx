@@ -49,8 +49,8 @@ export default function ServicesSection() {
           {/* Services content - with card style */}
           <div className="space-y-10">
             {/* AI Transformation Consulting */}
-            <div className="relative p-6 sm:p-8 md:p-10 bg-white/[0.02] backdrop-blur-sm rounded-2xl border border-white/[0.05] hover:border-primary/20 transition-all duration-300">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.03] to-transparent rounded-2xl" />
+            <div className="relative p-6 sm:p-8 md:p-10 bg-green-500/[0.08] backdrop-blur-sm rounded-2xl border border-green-500/20 hover:border-green-400/40 transition-all duration-300">
+              <div className="absolute inset-0 bg-gradient-to-br from-green-500/[0.05] to-transparent rounded-2xl" />
               <div className="relative">
                 <h3 className="text-2xl md:text-3xl font-semibold text-primary-light mb-4 text-left">
                   {t("services.consulting.title")}
@@ -67,8 +67,8 @@ export default function ServicesSection() {
             </div>
 
             {/* Rapid Prototyping */}
-            <div className="relative p-6 sm:p-8 md:p-10 bg-white/[0.02] backdrop-blur-sm rounded-2xl border border-white/[0.05] hover:border-primary/20 transition-all duration-300">
-              <div className="absolute inset-0 bg-gradient-to-bl from-primary/[0.03] to-transparent rounded-2xl" />
+            <div className="relative p-6 sm:p-8 md:p-10 bg-green-500/[0.08] backdrop-blur-sm rounded-2xl border border-green-500/20 hover:border-green-400/40 transition-all duration-300">
+              <div className="absolute inset-0 bg-gradient-to-bl from-green-500/[0.05] to-transparent rounded-2xl" />
               <div className="relative">
                 <h3 className="text-2xl md:text-3xl font-semibold text-primary-light mb-4 text-right">
                   {t("services.prototyping.title")}
@@ -85,8 +85,8 @@ export default function ServicesSection() {
             </div>
 
             {/* AI Product Development */}
-            <div className="relative p-6 sm:p-8 md:p-10 bg-white/[0.02] backdrop-blur-sm rounded-2xl border border-white/[0.05] hover:border-primary/20 transition-all duration-300">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.03] to-transparent rounded-2xl" />
+            <div className="relative p-6 sm:p-8 md:p-10 bg-green-500/[0.08] backdrop-blur-sm rounded-2xl border border-green-500/20 hover:border-green-400/40 transition-all duration-300">
+              <div className="absolute inset-0 bg-gradient-to-br from-green-500/[0.05] to-transparent rounded-2xl" />
               <div className="relative">
                 <h3 className="text-2xl md:text-3xl font-semibold text-primary-light mb-4 text-left">
                   {t("services.product.title")}
@@ -110,7 +110,7 @@ export default function ServicesSection() {
               
               <div className="grid md:grid-cols-2 gap-8">
                 {/* Discovery */}
-                <div className="relative p-6 bg-white/[0.01] rounded-xl">
+                <div className="relative p-6 bg-green-500/[0.05] rounded-xl">
                   <div className="text-6xl font-bold text-primary/20 absolute top-4 right-6">01</div>
                   <h4 className="text-xl font-semibold text-primary-light mb-3 relative z-10">{t("services.approach.discovery")}</h4>
                   <p className="text-white/70 relative z-10">
@@ -119,7 +119,7 @@ export default function ServicesSection() {
                 </div>
 
                 {/* Design */}
-                <div className="relative p-6 bg-white/[0.01] rounded-xl">
+                <div className="relative p-6 bg-green-500/[0.05] rounded-xl">
                   <div className="text-6xl font-bold text-primary/20 absolute top-4 right-6">02</div>
                   <h4 className="text-xl font-semibold text-primary-light mb-3 relative z-10">{t("services.approach.design")}</h4>
                   <p className="text-white/70 relative z-10">
@@ -128,7 +128,7 @@ export default function ServicesSection() {
                 </div>
 
                 {/* Deploy */}
-                <div className="relative p-6 bg-white/[0.01] rounded-xl">
+                <div className="relative p-6 bg-green-500/[0.05] rounded-xl">
                   <div className="text-6xl font-bold text-primary/20 absolute top-4 right-6">03</div>
                   <h4 className="text-xl font-semibold text-primary-light mb-3 relative z-10">{t("services.approach.deploy")}</h4>
                   <p className="text-white/70 relative z-10">
@@ -137,7 +137,7 @@ export default function ServicesSection() {
                 </div>
 
                 {/* Scale */}
-                <div className="relative p-6 bg-white/[0.01] rounded-xl">
+                <div className="relative p-6 bg-green-500/[0.05] rounded-xl">
                   <div className="text-6xl font-bold text-primary/20 absolute top-4 right-6">04</div>
                   <h4 className="text-xl font-semibold text-primary-light mb-3 relative z-10">{t("services.approach.scale")}</h4>
                   <p className="text-white/70 relative z-10">
