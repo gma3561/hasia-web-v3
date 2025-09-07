@@ -49,8 +49,8 @@ export default function AboutSection() {
           {/* Main content - with card style */}
           <div className="space-y-10">
             {/* Company intro - title left aligned */}
-            <div className="relative p-6 sm:p-8 md:p-10 bg-green-500/[0.08] backdrop-blur-sm rounded-2xl border border-green-500/20 hover:border-green-400/40 transition-all duration-300">
-              <div className="absolute inset-0 bg-gradient-to-br from-green-500/[0.05] to-transparent rounded-2xl" />
+            <div className="relative p-6 sm:p-8 md:p-10 bg-gradient-to-br from-white/[0.05] to-white/[0.02] backdrop-blur-sm rounded-2xl border border-white/[0.05] hover:border-primary/20 transition-all duration-300">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.03] to-transparent rounded-2xl" />
               <div className="relative">
                 <h3 className="text-2xl md:text-3xl font-semibold text-primary-light mb-4 text-left">
                   {t("about.card1.title")}
@@ -62,8 +62,8 @@ export default function AboutSection() {
             </div>
 
             {/* Philosophy - title right aligned */}
-            <div className="relative p-6 sm:p-8 md:p-10 bg-green-500/[0.08] backdrop-blur-sm rounded-2xl border border-green-500/20 hover:border-green-400/40 transition-all duration-300">
-              <div className="absolute inset-0 bg-gradient-to-bl from-green-500/[0.05] to-transparent rounded-2xl" />
+            <div className="relative p-6 sm:p-8 md:p-10 bg-gradient-to-br from-white/[0.05] to-white/[0.02] backdrop-blur-sm rounded-2xl border border-white/[0.05] hover:border-primary/20 transition-all duration-300">
+              <div className="absolute inset-0 bg-gradient-to-bl from-primary/[0.03] to-transparent rounded-2xl" />
               <div className="relative">
                 <h3 className="text-2xl md:text-3xl font-semibold text-primary-light mb-4 text-right">
                   {t("about.card2.title")}
@@ -75,8 +75,8 @@ export default function AboutSection() {
             </div>
 
             {/* Team structure - title left aligned */}
-            <div className="relative p-6 sm:p-8 md:p-10 bg-green-500/[0.08] backdrop-blur-sm rounded-2xl border border-green-500/20 hover:border-green-400/40 transition-all duration-300">
-              <div className="absolute inset-0 bg-gradient-to-br from-green-500/[0.05] to-transparent rounded-2xl" />
+            <div className="relative p-6 sm:p-8 md:p-10 bg-gradient-to-br from-white/[0.05] to-white/[0.02] backdrop-blur-sm rounded-2xl border border-white/[0.05] hover:border-primary/20 transition-all duration-300">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.03] to-transparent rounded-2xl" />
               <div className="relative">
                 <h3 className="text-2xl md:text-3xl font-semibold text-primary-light mb-4 text-left">
                   {t("about.card3.title")}
@@ -88,8 +88,8 @@ export default function AboutSection() {
             </div>
 
             {/* Results - title right aligned */}
-            <div className="relative p-6 sm:p-8 md:p-10 bg-green-500/[0.08] backdrop-blur-sm rounded-2xl border border-green-500/20 hover:border-green-400/40 transition-all duration-300">
-              <div className="absolute inset-0 bg-gradient-to-bl from-green-500/[0.05] to-transparent rounded-2xl" />
+            <div className="relative p-6 sm:p-8 md:p-10 bg-gradient-to-br from-white/[0.05] to-white/[0.02] backdrop-blur-sm rounded-2xl border border-white/[0.05] hover:border-primary/20 transition-all duration-300">
+              <div className="absolute inset-0 bg-gradient-to-bl from-primary/[0.03] to-transparent rounded-2xl" />
               <div className="relative">
                 <h3 className="text-2xl md:text-3xl font-semibold text-primary-light mb-4 text-right">
                   {t("about.card4.title")}
@@ -101,8 +101,8 @@ export default function AboutSection() {
             </div>
 
             {/* Future of work - title left aligned */}
-            <div className="relative p-6 sm:p-8 md:p-10 bg-green-500/[0.08] backdrop-blur-sm rounded-2xl border border-green-500/20 hover:border-green-400/40 transition-all duration-300">
-              <div className="absolute inset-0 bg-gradient-to-br from-green-500/[0.05] to-transparent rounded-2xl" />
+            <div className="relative p-6 sm:p-8 md:p-10 bg-gradient-to-br from-white/[0.05] to-white/[0.02] backdrop-blur-sm rounded-2xl border border-white/[0.05] hover:border-primary/20 transition-all duration-300">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.03] to-transparent rounded-2xl" />
               <div className="relative">
                 <h3 className="text-2xl md:text-3xl font-semibold text-primary-light mb-4 text-left">
                   {t("about.card5.title")}
