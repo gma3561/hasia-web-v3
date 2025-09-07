@@ -17,7 +17,7 @@ export default function HeroSection() {
       <div className="absolute inset-0">
         {/* Animated code lines */}
         <div className="absolute inset-0 opacity-60">
-          <div className="text-green-300 font-mono text-xs leading-relaxed whitespace-pre overflow-hidden text-center">
+          <div className="text-green-200 font-mono text-sm leading-relaxed whitespace-pre overflow-hidden text-center">
             <div className="animate-slide-up">
               {`const buildFuture = async () => {
   const team = ['human', 'human', 'human'];
