@@ -60,11 +60,9 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="relative bg-gradient-to-b from-black via-gray-950 to-black py-24 md:py-32 overflow-hidden">
-      {/* Background effects with subtle green tint */}
+    <section id="contact" className="relative bg-gray-900 py-24 md:py-32 overflow-hidden">
+      {/* Background effects */}
       <div className="absolute inset-0">
-        {/* Green tint overlay */}
-        <div className="absolute inset-0 bg-green-950/10" />
         {/* Gradient glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 filter blur-[200px]" />
       </div>
