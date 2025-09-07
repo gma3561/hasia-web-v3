@@ -49,9 +49,8 @@ export default function AboutSection() {
           {/* Main content - with card style */}
           <div className="space-y-10">
             {/* Company intro - title left aligned */}
-            <div className="relative p-6 sm:p-8 md:p-10 bg-gradient-to-br from-white/[0.12] to-white/[0.08] backdrop-blur-sm rounded-2xl border border-white/10 hover:border-primary/30 transition-all duration-300">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.03] to-transparent rounded-2xl" />
-              <div className="relative">
+            <div className="relative p-6 sm:p-8 md:p-10 bg-gray-800 rounded-2xl transition-all duration-300">
+              <div>
                 <h3 className="text-2xl md:text-3xl font-semibold text-primary-light mb-4 text-left">
                   {t("about.card1.title")}
                 </h3>
@@ -62,9 +61,8 @@ export default function AboutSection() {
             </div>
 
             {/* Philosophy - title right aligned */}
-            <div className="relative p-6 sm:p-8 md:p-10 bg-gradient-to-br from-white/[0.12] to-white/[0.08] backdrop-blur-sm rounded-2xl border border-white/10 hover:border-primary/30 transition-all duration-300">
-              <div className="absolute inset-0 bg-gradient-to-bl from-primary/[0.03] to-transparent rounded-2xl" />
-              <div className="relative">
+            <div className="relative p-6 sm:p-8 md:p-10 bg-gray-800 rounded-2xl transition-all duration-300">
+              <div>
                 <h3 className="text-2xl md:text-3xl font-semibold text-primary-light mb-4 text-right">
                   {t("about.card2.title")}
                 </h3>
@@ -75,9 +73,8 @@ export default function AboutSection() {
             </div>
 
             {/* Team structure - title left aligned */}
-            <div className="relative p-6 sm:p-8 md:p-10 bg-gradient-to-br from-white/[0.12] to-white/[0.08] backdrop-blur-sm rounded-2xl border border-white/10 hover:border-primary/30 transition-all duration-300">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.03] to-transparent rounded-2xl" />
-              <div className="relative">
+            <div className="relative p-6 sm:p-8 md:p-10 bg-gray-800 rounded-2xl transition-all duration-300">
+              <div>
                 <h3 className="text-2xl md:text-3xl font-semibold text-primary-light mb-4 text-left">
                   {t("about.card3.title")}
                 </h3>
@@ -88,9 +85,8 @@ export default function AboutSection() {
             </div>
 
             {/* Results - title right aligned */}
-            <div className="relative p-6 sm:p-8 md:p-10 bg-gradient-to-br from-white/[0.12] to-white/[0.08] backdrop-blur-sm rounded-2xl border border-white/10 hover:border-primary/30 transition-all duration-300">
-              <div className="absolute inset-0 bg-gradient-to-bl from-primary/[0.03] to-transparent rounded-2xl" />
-              <div className="relative">
+            <div className="relative p-6 sm:p-8 md:p-10 bg-gray-800 rounded-2xl transition-all duration-300">
+              <div>
                 <h3 className="text-2xl md:text-3xl font-semibold text-primary-light mb-4 text-right">
                   {t("about.card4.title")}
                 </h3>
@@ -101,9 +97,8 @@ export default function AboutSection() {
             </div>
 
             {/* Future of work - title left aligned */}
-            <div className="relative p-6 sm:p-8 md:p-10 bg-gradient-to-br from-white/[0.12] to-white/[0.08] backdrop-blur-sm rounded-2xl border border-white/10 hover:border-primary/30 transition-all duration-300">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.03] to-transparent rounded-2xl" />
-              <div className="relative">
+            <div className="relative p-6 sm:p-8 md:p-10 bg-gray-800 rounded-2xl transition-all duration-300">
+              <div>
                 <h3 className="text-2xl md:text-3xl font-semibold text-primary-light mb-4 text-left">
                   {t("about.card5.title")}
                 </h3>

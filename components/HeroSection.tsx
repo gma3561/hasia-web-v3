@@ -102,7 +102,7 @@ const tomorrow = new Promise((resolve) => {
 
       {/* Main Content */}
       <div className="relative z-10 container mx-auto px-4">
-        <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+        <div>
           
           {/* Badge */}
           <div className="flex justify-center mb-8">
