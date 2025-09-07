@@ -110,7 +110,7 @@ export default function ServicesSection() {
               
               <div className="grid md:grid-cols-2 gap-8">
                 {/* Discovery */}
-                <div className="relative p-6 bg-gradient-to-br from-white/[0.08] to-white/[0.04] rounded-xl">
+                <div className="relative p-6 bg-gradient-to-br from-white/[0.12] to-white/[0.08] rounded-xl">
                   <div className="text-6xl font-bold text-primary/20 absolute top-4 right-6">01</div>
                   <h4 className="text-xl font-semibold text-primary-light mb-3 relative z-10">{t("services.approach.discovery")}</h4>
                   <p className="text-white/70 relative z-10">
@@ -119,7 +119,7 @@ export default function ServicesSection() {
                 </div>
 
                 {/* Design */}
-                <div className="relative p-6 bg-gradient-to-br from-white/[0.08] to-white/[0.04] rounded-xl">
+                <div className="relative p-6 bg-gradient-to-br from-white/[0.12] to-white/[0.08] rounded-xl">
                   <div className="text-6xl font-bold text-primary/20 absolute top-4 right-6">02</div>
                   <h4 className="text-xl font-semibold text-primary-light mb-3 relative z-10">{t("services.approach.design")}</h4>
                   <p className="text-white/70 relative z-10">
@@ -128,7 +128,7 @@ export default function ServicesSection() {
                 </div>
 
                 {/* Deploy */}
-                <div className="relative p-6 bg-gradient-to-br from-white/[0.08] to-white/[0.04] rounded-xl">
+                <div className="relative p-6 bg-gradient-to-br from-white/[0.12] to-white/[0.08] rounded-xl">
                   <div className="text-6xl font-bold text-primary/20 absolute top-4 right-6">03</div>
                   <h4 className="text-xl font-semibold text-primary-light mb-3 relative z-10">{t("services.approach.deploy")}</h4>
                   <p className="text-white/70 relative z-10">
@@ -137,7 +137,7 @@ export default function ServicesSection() {
                 </div>
 
                 {/* Scale */}
-                <div className="relative p-6 bg-gradient-to-br from-white/[0.08] to-white/[0.04] rounded-xl">
+                <div className="relative p-6 bg-gradient-to-br from-white/[0.12] to-white/[0.08] rounded-xl">
                   <div className="text-6xl font-bold text-primary/20 absolute top-4 right-6">04</div>
                   <h4 className="text-xl font-semibold text-primary-light mb-3 relative z-10">{t("services.approach.scale")}</h4>
                   <p className="text-white/70 relative z-10">
