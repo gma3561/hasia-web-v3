@@ -17,7 +17,7 @@ export default function HeroSection() {
       <div className="absolute inset-0">
         {/* Animated code lines */}
         <div className="absolute inset-0 opacity-60">
-          <div className="text-green-200 font-mono text-sm leading-relaxed whitespace-pre overflow-hidden text-center">
+          <div className="text-green-100 font-mono text-sm leading-relaxed whitespace-pre overflow-hidden text-center">
             <div className="animate-slide-up">
               {`const buildFuture = async () => {
   const team = ['human', 'human', 'human'];
@@ -81,9 +81,9 @@ const tomorrow = new Promise((resolve) => {
         {/* Gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black" />
         
-        {/* Side glow effects */}
-        <div className="absolute top-1/2 left-0 w-1/3 h-1/2 bg-primary/20 filter blur-[100px] -translate-y-1/2" />
-        <div className="absolute top-1/2 right-0 w-1/3 h-1/2 bg-primary-light/20 filter blur-[100px] -translate-y-1/2" />
+        {/* Side glow effects - 2 steps brighter */}
+        <div className="absolute top-1/2 left-0 w-1/3 h-1/2 bg-primary/40 filter blur-[100px] -translate-y-1/2" />
+        <div className="absolute top-1/2 right-0 w-1/3 h-1/2 bg-primary-light/40 filter blur-[100px] -translate-y-1/2" />
       </div>
 
       <style jsx>{`
