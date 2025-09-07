@@ -4,8 +4,8 @@ export default function JsonLd() {
     "@type": "Organization",
     "name": "HASIA",
     "description": "AI Native Company - Building tomorrow with AI, today",
-    "url": "https://hasia.ai",
-    "logo": "https://hasia.ai/logo.png",
+    "url": "https://hyem-nim.github.io/hasia-website-final",
+    "logo": "https://hyem-nim.github.io/hasia-website-final/logo.png",
     "foundingDate": "2025",
     "founders": [
       {
@@ -29,10 +29,10 @@ export default function JsonLd() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "HASIA",
-    "url": "https://hasia.ai",
+    "url": "https://hyem-nim.github.io/hasia-website-final",
     "potentialAction": {
       "@type": "SearchAction",
-      "target": "https://hasia.ai/search?q={search_term_string}",
+      "target": "https://hyem-nim.github.io/hasia-website-final/search?q={search_term_string}",
       "query-input": "required name=search_term_string"
     }
   };

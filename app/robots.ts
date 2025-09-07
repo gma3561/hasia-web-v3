@@ -15,6 +15,6 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
       },
     ],
-    sitemap: 'https://hasia.ai/sitemap.xml',
+    sitemap: 'https://hyem-nim.github.io/hasia-website-final/sitemap.xml',
   }
 }

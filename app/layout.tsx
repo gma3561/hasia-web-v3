@@ -14,7 +14,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://hasia.ai'),
+  metadataBase: new URL('https://hyem-nim.github.io/hasia-website-final'),
   title: {
     default: "HASIA - AI Native Company",
     template: "%s | HASIA"
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "HASIA - AI Native Company",
     description: "Building tomorrow with AI, today. Transform your business with infinite AI agents.",
-    url: "https://hasia.ai",
+    url: "https://hyem-nim.github.io/hasia-website-final",
     siteName: "HASIA",
     images: [
       {
