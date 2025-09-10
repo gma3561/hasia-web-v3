@@ -1,0 +1,24 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://hyem-nim.github.io/hasia-web-v3/sitemap.xml
+
+# Crawl-delay (초 단위, 선택사항)
+# Crawl-delay: 1
+
+# 특정 봇 차단 예시 (스팸봇 차단)
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+# 구글봇은 모든 페이지 허용
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0

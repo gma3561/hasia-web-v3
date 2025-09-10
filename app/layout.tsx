@@ -14,7 +14,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://hyem-nim.github.io/hasia-website-final'),
+  metadataBase: new URL('https://hyem-nim.github.io/hasia-web-v3'),
   title: {
     default: "HASIA - AI Native Company",
     template: "%s | HASIA"
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "HASIA - AI Native Company",
     description: "Building tomorrow with AI, today. Transform your business with infinite AI agents.",
-    url: "https://hyem-nim.github.io/hasia-website-final",
+    url: "https://hyem-nim.github.io/hasia-web-v3",
     siteName: "HASIA",
     images: [
       {
@@ -64,10 +64,10 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  verification: {
-    google: "google-site-verification-code",
-    yandex: "yandex-verification-code",
-  },
+  // verification: {
+  //   google: "구글 서치 콘솔에서 받은 코드를 여기에 입력",
+  //   yandex: "얀덱스 웹마스터에서 받은 코드를 여기에 입력",
+  // },
 };
 
 export default function RootLayout({
