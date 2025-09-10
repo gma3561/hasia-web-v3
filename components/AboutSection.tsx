@@ -146,16 +146,16 @@ export default function AboutSection() {
                 {/* Modern card with 3D effect and gradient border */}
                 <div className="relative w-full max-w-4xl mx-auto">
                   {/* Animated gradient border */}
-                  <div className={`absolute -inset-[1px] bg-gradient-to-r ${card.gradient} rounded-2xl opacity-0 group-hover:opacity-100 blur-sm transition-all duration-500`} />
+                  <div className={`absolute -inset-[1px] bg-gradient-to-r ${card.gradient} rounded-2xl opacity-0 group-hover:opacity-30 blur-sm transition-all duration-500`} />
                   
                   {/* Card container with glass morphism */}
                   <div className="relative overflow-hidden bg-black/40 backdrop-blur-xl rounded-2xl border border-white/10 group-hover:border-white/20 transition-all duration-500">
                     
                     {/* Floating gradient orb */}
-                    <div className={`absolute ${card.align === 'right' ? 'left-0' : 'right-0'} top-0 w-64 h-64 bg-gradient-to-br ${card.gradient} opacity-10 blur-3xl group-hover:opacity-20 transition-opacity duration-1000`} />
+                    <div className={`absolute ${card.align === 'right' ? 'left-0' : 'right-0'} top-0 w-64 h-64 bg-gradient-to-br ${card.gradient} opacity-5 blur-3xl group-hover:opacity-10 transition-opacity duration-1000`} />
                     
                     {/* Animated accent line */}
-                    <div className={`absolute ${card.align === 'right' ? 'right-0' : 'left-0'} top-0 bottom-0 w-[1px] bg-gradient-to-b ${card.gradient} opacity-60`} />
+                    <div className={`absolute ${card.align === 'right' ? 'right-0' : 'left-0'} top-0 bottom-0 w-[1px] bg-gradient-to-b ${card.gradient} opacity-30`} />
                     
                     {/* Content */}
                     <div className="relative p-8 md:p-12">
@@ -166,9 +166,9 @@ export default function AboutSection() {
                         }`}>
                           {/* Index number with gradient background */}
                           <div className="relative">
-                            <div className={`absolute inset-0 bg-gradient-to-br ${card.gradient} blur-lg opacity-40`} />
-                            <div className={`relative w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br ${card.gradient} rounded-xl flex items-center justify-center transform rotate-3 group-hover:rotate-6 transition-transform duration-500`}>
-                              <span className="text-white font-bold text-lg md:text-2xl">
+                            <div className={`absolute inset-0 bg-gradient-to-br ${card.gradient} blur-lg opacity-20`} />
+                            <div className={`relative w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br ${card.gradient} rounded-xl flex items-center justify-center transform rotate-3 group-hover:rotate-6 transition-transform duration-500`}>
+                              <span className="text-white font-bold text-base md:text-lg">
                                 {(index + 1).toString().padStart(2, '0')}
                               </span>
                             </div>
@@ -177,7 +177,7 @@ export default function AboutSection() {
                           <div className={`flex-1 ${
                             card.align === 'right' ? 'text-right' : 'text-left'
                           }`}>
-                            <h3 className={`text-2xl md:text-3xl font-bold mb-2 bg-gradient-to-r ${card.gradient} bg-clip-text text-transparent`}>
+                            <h3 className={`text-lg md:text-2xl font-bold mb-2 bg-gradient-to-r ${card.gradient} bg-clip-text text-transparent`}>
                               {card.title}
                             </h3>
                             <div className={`h-[2px] w-24 bg-gradient-to-r ${card.gradient} opacity-60 ${
@@ -187,7 +187,7 @@ export default function AboutSection() {
                         </div>
                         
                         {/* Text content with better typography */}
-                        <p className={`text-gray-300 text-base md:text-lg leading-relaxed ${
+                        <p className={`text-gray-300 text-sm md:text-base leading-relaxed ${
                           card.align === 'right' ? 'text-right' : 'text-left'
                         }`} style={{ whiteSpace: 'pre-line' }}>
                           {card.content}
@@ -202,7 +202,7 @@ export default function AboutSection() {
                               key={tagIndex}
                               className="group/tag relative"
                             >
-                              <div className={`absolute inset-0 bg-gradient-to-r ${card.gradient} rounded-lg opacity-0 group-hover/tag:opacity-20 blur transition-all duration-300`} />
+                              <div className={`absolute inset-0 bg-gradient-to-r ${card.gradient} rounded-lg opacity-0 group-hover/tag:opacity-10 blur transition-all duration-300`} />
                               <span className="relative px-4 py-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg text-xs md:text-sm font-medium text-white/80 group-hover/tag:text-white group-hover/tag:border-white/30 transition-all duration-300">
                                 {tag}
                               </span>

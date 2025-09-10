@@ -134,21 +134,21 @@ const tomorrow = new Promise((resolve) => {
           </p>
           
           {/* Modern Stats with glass morphism */}
-          <div className="flex flex-wrap justify-center gap-4 md:gap-6 mt-12">
-            <div className="group relative px-6 py-4 backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 transition-all duration-300">
+          <div className="flex justify-center gap-4 sm:gap-4 md:gap-6 mt-12">
+            <div className="group relative px-3 sm:px-4 md:px-6 py-3 md:py-4 backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 transition-all duration-300 text-center">
               <div className="absolute inset-x-0 -bottom-px h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              <div className="text-3xl md:text-4xl font-bold bg-gradient-to-br from-white to-white/60 bg-clip-text text-transparent">10x</div>
-              <div className="text-white/40 text-xs mt-1 uppercase tracking-widest">{t("hero.stat1")}</div>
+              <div className="text-xl sm:text-2xl md:text-4xl font-bold bg-gradient-to-br from-white to-white/60 bg-clip-text text-transparent">10x</div>
+              <div className="text-white/60 text-[10px] sm:text-xs mt-1 uppercase tracking-wider sm:tracking-widest">{t("hero.stat1")}</div>
             </div>
-            <div className="group relative px-6 py-4 backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 transition-all duration-300">
+            <div className="group relative px-3 sm:px-4 md:px-6 py-3 md:py-4 backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 transition-all duration-300 text-center">
               <div className="absolute inset-x-0 -bottom-px h-px bg-gradient-to-r from-transparent via-primary-light to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              <div className="text-3xl md:text-4xl font-bold bg-gradient-to-br from-white to-white/60 bg-clip-text text-transparent">∞</div>
-              <div className="text-white/40 text-xs mt-1 uppercase tracking-widest">{t("hero.stat2")}</div>
+              <div className="text-xl sm:text-2xl md:text-4xl font-bold bg-gradient-to-br from-white to-white/60 bg-clip-text text-transparent">∞</div>
+              <div className="text-white/60 text-[10px] sm:text-xs mt-1 uppercase tracking-wider sm:tracking-widest">{t("hero.stat2")}</div>
             </div>
-            <div className="group relative px-6 py-4 backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 transition-all duration-300">
+            <div className="group relative px-3 sm:px-4 md:px-6 py-3 md:py-4 backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 transition-all duration-300 text-center">
               <div className="absolute inset-x-0 -bottom-px h-px bg-gradient-to-r from-transparent via-accent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              <div className="text-3xl md:text-4xl font-bold bg-gradient-to-br from-white to-white/60 bg-clip-text text-transparent">24/7</div>
-              <div className="text-white/40 text-xs mt-1 uppercase tracking-widest">{t("hero.stat3")}</div>
+              <div className="text-xl sm:text-2xl md:text-4xl font-bold bg-gradient-to-br from-white to-white/60 bg-clip-text text-transparent">24/7</div>
+              <div className="text-white/60 text-[10px] sm:text-xs mt-1 uppercase tracking-wider sm:tracking-widest">{t("hero.stat3")}</div>
             </div>
           </div>
         </div>
