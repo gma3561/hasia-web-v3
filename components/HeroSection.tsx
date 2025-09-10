@@ -15,9 +15,9 @@ export default function HeroSection() {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
       {/* Code Background Pattern */}
       <div className="absolute inset-0">
-        {/* Animated code lines - much brighter */}
-        <div className="absolute inset-0 opacity-90">
-          <div className="text-green-200 font-mono text-sm leading-relaxed whitespace-pre overflow-hidden text-center">
+        {/* Animated code lines - dimmer */}
+        <div className="absolute inset-0 opacity-30">
+          <div className="text-green-300 font-mono text-sm leading-relaxed whitespace-pre overflow-hidden text-center">
             <div className="animate-slide-up">
               {`const buildFuture = async () => {
   const team = ['human', 'human', 'human'];
