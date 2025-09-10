@@ -174,57 +174,80 @@ export default function ServicesSection() {
                 }`}
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
-                <div className="relative overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl border border-gray-700/50 backdrop-blur-sm w-full max-w-4xl mx-auto">
+                {/* Modern card design matching AboutSection */}
+                <div className="relative w-full max-w-4xl mx-auto">
+                  {/* Animated gradient border */}
+                  <div className={`absolute -inset-[1px] bg-gradient-to-r ${service.gradient} rounded-2xl opacity-0 group-hover:opacity-100 blur-sm transition-all duration-500`} />
                   
-                  {/* Decorative gradient overlay */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-[0.02]`} />
-                  
-                  {/* Geometric shape decoration - hidden on mobile */}
-                  <div className={`hidden md:block absolute ${service.align === 'right' ? '-left-6' : '-right-6'} top-1/2 -translate-y-1/2 w-24 h-24 bg-gradient-to-br ${service.gradient} opacity-10 rotate-45 rounded-2xl`} />
-                  
-                  {/* Content */}
-                  <div className="relative p-6 md:p-12">
-                    <div className="flex flex-col gap-4 md:gap-6">
-                      {/* Title with bar */}
-                      <div className={`flex items-center gap-3 md:gap-4 ${
-                        service.align === 'right' ? 'flex-row-reverse' : ''
-                      }`}>
-                        <div className={`text-3xl md:text-4xl font-light bg-gradient-to-r ${service.gradient} bg-clip-text text-transparent`}>
-                          |
-                        </div>
-                        <h3 className={`text-xl md:text-3xl font-bold bg-gradient-to-r ${service.gradient} bg-clip-text text-transparent ${
-                          service.align === 'right' ? 'text-right' : 'text-left'
+                  {/* Card container with glass morphism */}
+                  <div className="relative overflow-hidden bg-black/40 backdrop-blur-xl rounded-2xl border border-white/10 group-hover:border-white/20 transition-all duration-500">
+                    
+                    {/* Floating gradient orb */}
+                    <div className={`absolute ${service.align === 'right' ? 'left-0' : 'right-0'} top-0 w-64 h-64 bg-gradient-to-br ${service.gradient} opacity-10 blur-3xl group-hover:opacity-20 transition-opacity duration-1000`} />
+                    
+                    {/* Animated accent line */}
+                    <div className={`absolute ${service.align === 'right' ? 'right-0' : 'left-0'} top-0 bottom-0 w-[1px] bg-gradient-to-b ${service.gradient} opacity-60`} />
+                    
+                    {/* Content */}
+                    <div className="relative p-8 md:p-12">
+                      <div className="flex flex-col gap-6">
+                        {/* Service icon with title */}
+                        <div className={`flex items-start gap-6 ${
+                          service.align === 'right' ? 'flex-row-reverse' : ''
                         }`}>
-                          {service.title}
-                        </h3>
-                      </div>
-                      
-                      {/* Text content */}
-                      <p className={`text-gray-300 text-base md:text-lg leading-relaxed ${
-                        service.align === 'right' ? 'text-right' : 'text-left'
-                      }`} style={{ whiteSpace: 'pre-line' }}>
-                        {service.content}
-                      </p>
-                      
-                      {/* Tags */}
-                      <div className={`flex flex-wrap gap-2 md:gap-3 ${
-                        service.align === 'right' ? 'justify-end' : 'justify-start'
-                      }`}>
-                        {service.tags.map((tag, tagIndex) => (
-                          <span 
-                            key={tagIndex}
-                            className={`px-3 md:px-4 py-1 md:py-2 rounded-full text-xs md:text-sm font-medium text-white border border-white/10`}
-                            style={{
-                              background: `linear-gradient(to right, ${service.gradient.includes('cyan') ? 'rgba(6, 182, 212, 0.1)' : service.gradient.includes('purple') ? 'rgba(168, 85, 247, 0.1)' : 'rgba(251, 146, 60, 0.1)'}, ${service.gradient.includes('blue') ? 'rgba(37, 99, 235, 0.1)' : service.gradient.includes('pink') ? 'rgba(236, 72, 153, 0.1)' : 'rgba(239, 68, 68, 0.1)'})`
-                            }}
-                          >
-                            {tag}
-                          </span>
-                        ))}
+                          {/* Service Icon with gradient background */}
+                          <div className="relative">
+                            <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} blur-lg opacity-40`} />
+                            <div className={`relative w-14 h-14 md:w-20 md:h-20 bg-gradient-to-br from-black/50 to-black/30 backdrop-blur-sm rounded-2xl flex items-center justify-center border border-white/10 group-hover:border-white/20 transition-all duration-500`}>
+                              <div className={`w-8 h-8 md:w-10 md:h-10 text-white`}>
+                                {service.icon}
+                              </div>
+                            </div>
+                          </div>
+                          
+                          <div className={`flex-1 ${
+                            service.align === 'right' ? 'text-right' : 'text-left'
+                          }`}>
+                            <h3 className={`text-2xl md:text-3xl font-bold mb-2 bg-gradient-to-r ${service.gradient} bg-clip-text text-transparent`}>
+                              {service.title}
+                            </h3>
+                            <div className={`h-[2px] w-24 bg-gradient-to-r ${service.gradient} opacity-60 ${
+                              service.align === 'right' ? 'ml-auto' : ''
+                            }`} />
+                          </div>
+                        </div>
+                        
+                        {/* Text content with better typography */}
+                        <p className={`text-gray-300 text-base md:text-lg leading-relaxed ${
+                          service.align === 'right' ? 'text-right' : 'text-left'
+                        }`} style={{ whiteSpace: 'pre-line' }}>
+                          {service.content}
+                        </p>
+                        
+                        {/* Modern tags with hover effect */}
+                        <div className={`flex flex-wrap gap-3 ${
+                          service.align === 'right' ? 'justify-end' : 'justify-start'
+                        }`}>
+                          {service.tags.map((tag, tagIndex) => (
+                            <div
+                              key={tagIndex}
+                              className="group/tag relative"
+                            >
+                              <div className={`absolute inset-0 bg-gradient-to-r ${service.gradient} rounded-lg opacity-0 group-hover/tag:opacity-20 blur transition-all duration-300`} />
+                              <span className="relative px-4 py-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg text-xs md:text-sm font-medium text-white/80 group-hover/tag:text-white group-hover/tag:border-white/30 transition-all duration-300">
+                                {tag}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     </div>
+                    
+                    {/* Progress indicator */}
+                    <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-white/5">
+                      <div className={`h-full bg-gradient-to-r ${service.gradient} transition-all duration-1000 group-hover:w-full`} style={{ width: '0%' }} />
+                    </div>
                   </div>
-                  
                 </div>
               </div>
             ))}

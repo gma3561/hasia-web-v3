@@ -56,27 +56,40 @@ export default function Header() {
               {t("nav.contact")}
             </Link>
             
-            {/* Language Toggle */}
+            {/* Modern Language Toggle with sliding effect */}
             <button
               onClick={() => setLanguage(language === "EN" ? "KO" : "EN")}
-              className="flex items-center gap-1 px-3 py-1 border border-white/30 rounded-full hover:border-white/60 transition-colors text-sm"
+              className="relative h-8 w-16 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:border-white/40 transition-all duration-300 overflow-hidden group"
             >
-              <span className={language === "KO" ? "font-bold text-white" : "text-white/60"}>KO</span>
-              <span className="text-white/40">|</span>
-              <span className={language === "EN" ? "font-bold text-white" : "text-white/60"}>EN</span>
+              <div className={`absolute inset-y-0 w-8 bg-gradient-to-r from-primary to-primary-light rounded-full transition-transform duration-300 ${language === "EN" ? "translate-x-8" : "translate-x-0"}`} />
+              <div className="relative flex items-center justify-between h-full px-2 text-xs font-medium">
+                <span className={`transition-colors duration-300 ${language === "KO" ? "text-white" : "text-white/60"}`}>
+                  KO
+                </span>
+                <span className={`transition-colors duration-300 ${language === "EN" ? "text-white" : "text-white/60"}`}>
+                  EN
+                </span>
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-primary-light/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </button>
           </div>
 
           {/* Mobile Right Side */}
           <div className="md:hidden flex items-center gap-3">
-            {/* Language Toggle for Mobile - Outside Menu */}
+            {/* Modern Language Toggle for Mobile with sliding effect */}
             <button
               onClick={() => setLanguage(language === "EN" ? "KO" : "EN")}
-              className="flex items-center gap-1 px-2 py-1 border border-white/30 rounded-full hover:border-white/60 transition-colors text-xs"
+              className="relative h-7 w-14 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:border-white/40 transition-all duration-300 overflow-hidden"
             >
-              <span className={language === "KO" ? "font-bold text-white" : "text-white/60"}>KO</span>
-              <span className="text-white/40">|</span>
-              <span className={language === "EN" ? "font-bold text-white" : "text-white/60"}>EN</span>
+              <div className={`absolute inset-y-0 w-7 bg-gradient-to-r from-primary to-primary-light rounded-full transition-transform duration-300 ${language === "EN" ? "translate-x-7" : "translate-x-0"}`} />
+              <div className="relative flex items-center justify-between h-full px-1.5 text-[10px] font-medium">
+                <span className={`transition-colors duration-300 ${language === "KO" ? "text-white" : "text-white/60"}`}>
+                  KO
+                </span>
+                <span className={`transition-colors duration-300 ${language === "EN" ? "text-white" : "text-white/60"}`}>
+                  EN
+                </span>
+              </div>
             </button>
             
             {/* Mobile Menu Button */}
