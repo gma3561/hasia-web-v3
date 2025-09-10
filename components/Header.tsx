@@ -26,7 +26,7 @@ export default function Header() {
       <nav className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="text-green-500 font-mono text-[4px] leading-[1] whitespace-pre hover:text-green-400 transition-colors">
+          <Link href="/" className="text-green-500 font-mono text-[6px] leading-[1] whitespace-pre hover:text-green-400 transition-colors">
             {`██╗  ██╗ █████╗ ███████╗██╗ █████╗ 
 ██║  ██║██╔══██╗██╔════╝██║██╔══██╗
 ███████║███████║███████╗██║███████║

@@ -109,21 +109,21 @@ const tomorrow = new Promise((resolve) => {
             <div className="relative group">
               {/* Animated gradient border */}
               <div className="absolute -inset-0.5 bg-gradient-to-r from-primary via-primary-light to-accent rounded-lg blur opacity-60 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
-              <div className="relative inline-flex items-center gap-3 px-5 py-2.5 bg-black rounded-lg leading-none">
-                <div className="flex gap-1">
-                  <span className="w-1 h-4 bg-gradient-to-b from-primary to-primary-light rounded-full animate-pulse"></span>
-                  <span className="w-1 h-4 bg-gradient-to-b from-primary-light to-accent rounded-full animate-pulse animation-delay-200"></span>
-                  <span className="w-1 h-4 bg-gradient-to-b from-accent to-primary rounded-full animate-pulse animation-delay-400"></span>
+              <div className="relative inline-flex items-center gap-2 px-3 py-1.5 bg-black rounded-lg leading-none">
+                <div className="flex gap-0.5">
+                  <span className="w-0.5 h-3 bg-gradient-to-b from-primary to-primary-light rounded-full animate-pulse"></span>
+                  <span className="w-0.5 h-3 bg-gradient-to-b from-primary-light to-accent rounded-full animate-pulse animation-delay-200"></span>
+                  <span className="w-0.5 h-3 bg-gradient-to-b from-accent to-primary rounded-full animate-pulse animation-delay-400"></span>
                 </div>
-                <span className="text-white font-medium text-sm tracking-wider uppercase">{t("hero.badge")}</span>
+                <span className="text-white font-medium text-xs tracking-wider uppercase">{t("hero.badge")}</span>
               </div>
             </div>
           </div>
 
           {/* Main Heading */}
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black text-center mb-6">
-            <span className="block text-white mb-2">FROM IDEA</span>
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-primary">
+          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl text-center mb-6" style={{ fontWeight: 900, fontFamily: "'Arial Black', 'Helvetica', sans-serif", letterSpacing: '-0.02em' }}>
+            <span className="block text-white mb-2" style={{ fontWeight: 900 }}>FROM IDEA</span>
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-primary" style={{ fontWeight: 900 }}>
               TO REALITY
             </span>
           </h1>
