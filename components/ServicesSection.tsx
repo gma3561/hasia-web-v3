@@ -253,18 +253,13 @@ export default function ServicesSection() {
                     
                     {/* Content */}
                     <div className="relative p-8">
-                      <div className="flex items-start gap-4 mb-4">
-                        <div className={`w-14 h-14 bg-gradient-to-br ${step.gradient} rounded-2xl flex items-center justify-center text-white shadow-lg`}>
-                          {step.icon}
-                        </div>
-                        <div className="flex-1">
-                          <h4 className={`text-2xl font-bold bg-gradient-to-r ${step.gradient} bg-clip-text text-transparent mb-3`}>
-                            {step.title}
-                          </h4>
-                          <p className="text-gray-400 leading-relaxed">
-                            {step.desc}
-                          </p>
-                        </div>
+                      <div className="mb-4">
+                        <h4 className={`text-2xl font-bold bg-gradient-to-r ${step.gradient} bg-clip-text text-transparent mb-3`}>
+                          {step.title}
+                        </h4>
+                        <p className="text-gray-400 leading-relaxed">
+                          {step.desc}
+                        </p>
                       </div>
                     </div>
                     
