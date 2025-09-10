@@ -5,9 +5,9 @@ export default function Footer() {
   
   return (
     <footer className="relative bg-black border-t border-white/10">
-      <div className="relative container mx-auto px-8 md:px-6 py-4">
+      <div className="relative container mx-auto px-8 md:px-6 py-6">
         <div className="flex items-center justify-center">
-          <p className="text-xs text-green-500">
+          <p className="text-sm text-green-500">
             © {currentYear} HASIA Corporation. All rights reserved.
           </p>
         </div>
