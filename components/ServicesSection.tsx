@@ -5,36 +5,26 @@ import { useLanguage } from "@/contexts/LanguageContext";
 
 // Service Icon Components
 const ConsultingIcon = () => (
-  <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M9 11H3V2L9 11Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M9 7L15 2V11H9L15 7Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M15 7L21 2V11H15L21 7Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M3 22H21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M12 17V22" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+  <svg className="w-full h-full" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 2C9.5 2 7.5 4 7.5 6.5C6 6.5 4.5 8 4.5 10C3 10 2 11.5 2 13.5C2 16 3.5 18 6 18.5V22H18V18.5C20.5 18 22 16 22 13.5C22 11.5 21 10 19.5 10C19.5 8 18 6.5 16.5 6.5C16.5 4 14.5 2 12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M8 14H9M12 14H13M16 14H17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
   </svg>
 );
 
 const PrototypeIcon = () => (
-  <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" strokeWidth="2"/>
-    <path d="M9 9H15V15H9V9Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M3 9H6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M18 9H21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M3 15H6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M18 15H21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M9 3V6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M15 3V6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M9 18V21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M15 18V21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+  <svg className="w-full h-full" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M21 16V8C20.9996 7.64928 20.9071 7.30481 20.7315 7.00116C20.556 6.69751 20.3037 6.44536 20 6.27L13 2.27C12.696 2.09446 12.3511 2.00205 12 2.00205C11.6489 2.00205 11.304 2.09446 11 2.27L4 6.27C3.69626 6.44536 3.44398 6.69751 3.26846 7.00116C3.09294 7.30481 3.00036 7.64928 3 8V16C3.00036 16.3507 3.09294 16.6952 3.26846 16.9988C3.44398 17.3025 3.69626 17.5546 4 17.73L11 21.73C11.304 21.9055 11.6489 21.9979 12 21.9979C12.3511 21.9979 12.696 21.9055 13 21.73L20 17.73C20.3037 17.5546 20.556 17.3025 20.7315 16.9988C20.9071 16.6952 20.9996 16.3507 21 16Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M3.27 6.96L12 12.01L20.73 6.96" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M12 22.08V12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
   </svg>
 );
 
 const ProductIcon = () => (
-  <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M12 2L22 7V17C22 17.5304 21.7893 18.0391 21.4142 18.4142C21.0391 18.7893 20.5304 19 20 19H4C3.46957 19 2.96086 18.7893 2.58579 18.4142C2.21071 18.0391 2 17.5304 2 17V7L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M12 22V11" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M2 7L12 12L22 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M7 9.5L12 12L17 9.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+  <svg className="w-full h-full" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M4.5 16.5C3 18 3 20 3 20S5 20 6.5 18.5L9 16L8 13L5 12L4.5 16.5Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M12 15L8 11L17.29 1.71C17.6806 1.31947 18.2131 1.10073 18.77 1.10073C19.3269 1.10073 19.8594 1.31947 20.25 1.71C20.6405 2.10053 20.8593 2.63307 20.8593 3.19C20.8593 3.74693 20.6405 4.27947 20.25 4.67L11 14L12 15Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M9 11L6 8C6 8 9 3 15 3L14 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M13 13L16 16C16 16 21 13 21 7L15 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
   </svg>
 );
 
@@ -103,8 +93,7 @@ export default function ServicesSection() {
       tags: [t("services.consulting.tag1"), t("services.consulting.tag2"), t("services.consulting.tag3")],
       icon: <ConsultingIcon />,
       gradient: "from-cyan-500 to-blue-600",
-      pattern: "diagonal",
-      layout: "zigzag-left"
+      align: "left"
     },
     {
       title: t("services.prototyping.title"),
@@ -112,8 +101,7 @@ export default function ServicesSection() {
       tags: [t("services.prototyping.tag1"), t("services.prototyping.tag2"), t("services.prototyping.tag3")],
       icon: <PrototypeIcon />,
       gradient: "from-purple-500 to-pink-600",
-      pattern: "dots",
-      layout: "zigzag-right"
+      align: "right"
     },
     {
       title: t("services.product.title"),
@@ -121,8 +109,7 @@ export default function ServicesSection() {
       tags: [t("services.product.tag1"), t("services.product.tag2"), t("services.product.tag3")],
       icon: <ProductIcon />,
       gradient: "from-orange-500 to-red-600",
-      pattern: "waves",
-      layout: "zigzag-left"
+      align: "left"
     }
   ];
 
@@ -164,11 +151,6 @@ export default function ServicesSection() {
         <div className="absolute top-0 left-0 w-96 h-96 bg-cyan-500/10 rounded-full filter blur-3xl animate-pulse" />
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-500/10 rounded-full filter blur-3xl animate-pulse delay-500" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-orange-500/5 rounded-full filter blur-3xl animate-pulse delay-1000" />
-        
-        {/* Floating geometric shapes */}
-        <div className="absolute top-20 right-20 w-20 h-20 border-2 border-cyan-500/20 rotate-45 animate-float" />
-        <div className="absolute bottom-40 left-32 w-16 h-16 border-2 border-purple-500/20 rounded-full animate-float delay-700" />
-        <div className="absolute top-1/3 right-1/4 w-24 h-24 border-2 border-orange-500/20 animate-float delay-500" style={{ clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)' }} />
       </div>
 
       <div className="relative z-10 container mx-auto px-6 sm:px-8 md:px-6">
@@ -182,89 +164,67 @@ export default function ServicesSection() {
             <div className="w-32 h-1 bg-gradient-to-r from-primary via-primary-light to-primary mx-auto rounded-full" />
           </div>
 
-          {/* Services with creative zigzag layout */}
-          <div className="relative">
+          {/* Services with same layout as AboutSection */}
+          <div className="space-y-8">
             {services.map((service, index) => (
               <div
                 key={index}
-                className={`group relative mb-8 transition-all duration-700 ${
-                  isVisible ? 'opacity-100 translate-x-0' : 
-                  service.layout === 'zigzag-left' ? 'opacity-0 -translate-x-20' : 'opacity-0 translate-x-20'
+                className={`group relative transition-all duration-500 ${
+                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                 }`}
-                style={{ transitionDelay: `${index * 150}ms` }}
+                style={{ transitionDelay: `${index * 100}ms` }}
               >
-                <div className={`relative flex ${service.layout === 'zigzag-right' ? 'justify-end' : 'justify-start'}`}>
-                  <div className={`relative max-w-5xl w-full ${service.layout === 'zigzag-right' ? 'text-right' : 'text-left'}`}>
-                    {/* Main service container */}
-                    <div className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 rounded-3xl border border-gray-700/30 backdrop-blur-xl">
-                      
-                      {/* Gradient overlay */}
-                      <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-[0.02]`} />
-                      
-                      {/* Pattern background */}
-                      <div className="absolute inset-0 opacity-5">
-                        {service.pattern === 'diagonal' && (
-                          <div className="w-full h-full" style={{
-                            backgroundImage: `repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,0.03) 10px, rgba(255,255,255,0.03) 20px)`
-                          }} />
-                        )}
-                        {service.pattern === 'dots' && (
-                          <div className="w-full h-full" style={{
-                            backgroundImage: `radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px)`,
-                            backgroundSize: '20px 20px'
-                          }} />
-                        )}
-                        {service.pattern === 'waves' && (
-                          <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-                            <pattern id={`wave-${index}`} x="0" y="0" width="100" height="20" patternUnits="userSpaceOnUse">
-                              <path d="M0 10 Q 25 0 50 10 T 100 10" stroke="rgba(255,255,255,0.05)" strokeWidth="2" fill="none" />
-                            </pattern>
-                            <rect width="100%" height="100%" fill={`url(#wave-${index})`} />
-                          </svg>
-                        )}
-                      </div>
-                      
-                      {/* Floating shape decoration */}
-                      <div className={`absolute ${service.layout === 'zigzag-right' ? '-left-10' : '-right-10'} top-1/2 -translate-y-1/2`}>
-                        <div className={`w-32 h-32 bg-gradient-to-br ${service.gradient} opacity-10 blur-2xl rounded-full`} />
-                      </div>
-                      
-                      {/* Content */}
-                      <div className="relative p-10 md:p-14">
-                        <div className={`flex items-start gap-8 ${service.layout === 'zigzag-right' ? 'flex-row-reverse' : ''}`}>
-                          {/* Icon with enhanced container */}
-                          <div className="flex-shrink-0">
-                            <div className={`relative w-20 h-20 bg-gradient-to-br ${service.gradient} rounded-3xl flex items-center justify-center text-white shadow-2xl`}>
-                              {service.icon}
-                            </div>
-                          </div>
-                          
-                          {/* Text content */}
-                          <div className="flex-1">
-                            <h3 className={`text-3xl md:text-4xl font-bold bg-gradient-to-r ${service.gradient} bg-clip-text text-transparent mb-6`}>
-                              {service.title}
-                            </h3>
-                            <p className="text-gray-300 text-lg leading-relaxed mb-6">
-                              {service.content}
-                            </p>
-                            <div className={`flex flex-wrap gap-3 ${service.layout === 'zigzag-right' ? 'justify-end' : ''}`}>
-                              {service.tags.map((tag, tagIndex) => (
-                                <span 
-                                  key={tagIndex}
-                                  className={`px-4 py-2 bg-gradient-to-r ${service.gradient} bg-opacity-10 text-white rounded-full text-sm font-medium border border-white/10 hover:border-white/30 transition-colors duration-300`}
-                                >
-                                  {tag}
-                                </span>
-                              ))}
-                            </div>
-                          </div>
+                <div className="relative overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl border border-gray-700/50 backdrop-blur-sm w-full max-w-4xl mx-auto">
+                  
+                  {/* Decorative gradient overlay */}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-[0.02]`} />
+                  
+                  {/* Geometric shape decoration - hidden on mobile */}
+                  <div className={`hidden md:block absolute ${service.align === 'right' ? '-left-6' : '-right-6'} top-1/2 -translate-y-1/2 w-24 h-24 bg-gradient-to-br ${service.gradient} opacity-10 rotate-45 rounded-2xl`} />
+                  
+                  {/* Content */}
+                  <div className="relative p-6 md:p-12">
+                    <div className="flex flex-col gap-4 md:gap-6">
+                      {/* Title with bar */}
+                      <div className={`flex items-center gap-3 md:gap-4 ${
+                        service.align === 'right' ? 'flex-row-reverse' : ''
+                      }`}>
+                        <div className={`text-3xl md:text-4xl font-light bg-gradient-to-r ${service.gradient} bg-clip-text text-transparent`}>
+                          |
                         </div>
+                        <h3 className={`text-xl md:text-3xl font-bold bg-gradient-to-r ${service.gradient} bg-clip-text text-transparent ${
+                          service.align === 'right' ? 'text-right' : 'text-left'
+                        }`}>
+                          {service.title}
+                        </h3>
                       </div>
                       
-                      {/* Animated accent line */}
-                      <div className={`absolute ${service.layout === 'zigzag-right' ? 'right-0' : 'left-0'} top-0 bottom-0 w-1 bg-gradient-to-b ${service.gradient} opacity-30`} />
+                      {/* Text content */}
+                      <p className={`text-gray-300 text-base md:text-lg leading-relaxed ${
+                        service.align === 'right' ? 'text-right' : 'text-left'
+                      }`} style={{ whiteSpace: 'pre-line' }}>
+                        {service.content}
+                      </p>
+                      
+                      {/* Tags */}
+                      <div className={`flex flex-wrap gap-2 md:gap-3 ${
+                        service.align === 'right' ? 'justify-end' : 'justify-start'
+                      }`}>
+                        {service.tags.map((tag, tagIndex) => (
+                          <span 
+                            key={tagIndex}
+                            className={`px-3 md:px-4 py-1 md:py-2 rounded-full text-xs md:text-sm font-medium text-white border border-white/10`}
+                            style={{
+                              background: `linear-gradient(to right, ${service.gradient.includes('cyan') ? 'rgba(6, 182, 212, 0.1)' : service.gradient.includes('purple') ? 'rgba(168, 85, 247, 0.1)' : 'rgba(251, 146, 60, 0.1)'}, ${service.gradient.includes('blue') ? 'rgba(37, 99, 235, 0.1)' : service.gradient.includes('pink') ? 'rgba(236, 72, 153, 0.1)' : 'rgba(239, 68, 68, 0.1)'})`
+                            }}
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   </div>
+                  
                 </div>
               </div>
             ))}
@@ -318,24 +278,6 @@ export default function ServicesSection() {
         </div>
       </div>
 
-      <style jsx>{`
-        @keyframes float {
-          0%, 100% { transform: translateY(0px) rotate(45deg); }
-          50% { transform: translateY(-20px) rotate(45deg); }
-        }
-        .animate-float {
-          animation: float 4s ease-in-out infinite;
-        }
-        .delay-500 {
-          animation-delay: 500ms;
-        }
-        .delay-700 {
-          animation-delay: 700ms;
-        }
-        .delay-1000 {
-          animation-delay: 1000ms;
-        }
-      `}</style>
     </section>
   );
 }

@@ -3,46 +3,41 @@
 import { useState, useEffect } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-// Icon components
-const RocketIcon = () => (
-  <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M13.5 2L4 14L12 13L19 21L21 12L13.5 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M14 12L16 10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+// Icon components - new simplified icons
+const SparkleIcon = () => (
+  <svg className="w-full h-full" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 2L14 9L21 12L14 15L12 22L10 15L3 12L10 9L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
   </svg>
 );
 
-const TargetIcon = () => (
-  <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2"/>
-    <circle cx="12" cy="12" r="6" stroke="currentColor" strokeWidth="2"/>
-    <circle cx="12" cy="12" r="2" stroke="currentColor" strokeWidth="2"/>
+const LightbulbIcon = () => (
+  <svg className="w-full h-full" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 2C15.314 2 18 4.686 18 8C18 10.165 16.944 12.062 15.333 13.2V17C15.333 17.368 15.035 17.667 14.667 17.667H9.333C8.965 17.667 8.667 17.368 8.667 17V13.2C7.056 12.062 6 10.165 6 8C6 4.686 8.686 2 12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M9 21H15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M12 18V21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
   </svg>
 );
 
-const TeamIcon = () => (
-  <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M17 21V19C17 17.9391 16.5786 16.9217 15.8284 16.1716C15.0783 15.4214 14.0609 15 13 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-    <circle cx="9" cy="7" r="4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M23 21V19C22.9993 18.1137 22.7044 17.2528 22.1614 16.5523C21.6184 15.8519 20.8581 15.3516 20 15.13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M16 3.13C16.8604 3.35031 17.623 3.85071 18.1676 4.55232C18.7122 5.25392 19.0078 6.11683 19.0078 7.005C19.0078 7.89317 18.7122 8.75608 18.1676 9.45768C17.623 10.1593 16.8604 10.6597 16 10.88" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+const GearsIcon = () => (
+  <svg className="w-full h-full" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="12" cy="12" r="3" stroke="currentColor" strokeWidth="2"/>
+    <path d="M12 1V6M12 18V23M4.22 4.22L7.76 7.76M16.24 16.24L19.78 19.78M1 12H6M18 12H23M4.22 19.78L7.76 16.24M16.24 7.76L19.78 4.22" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
   </svg>
 );
 
-const TrophyIcon = () => (
-  <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M6 9H4.5C3.83696 9 3.20107 8.73661 2.73223 8.26777C2.26339 7.79893 2 7.16304 2 6.5C2 5.83696 2.26339 5.20107 2.73223 4.73223C3.20107 4.26339 3.83696 4 4.5 4H6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M18 9H19.5C20.163 9 20.7989 8.73661 21.2678 8.26777C21.7366 7.79893 22 7.16304 22 6.5C22 5.83696 21.7366 5.20107 21.2678 4.73223C20.7989 4.26339 20.163 4 19.5 4H18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M6 4H18V13C18 14.0609 17.5786 15.0783 16.8284 15.8284C16.0783 16.5786 15.0609 17 14 17H10C8.93913 17 7.92172 16.5786 7.17157 15.8284C6.42143 15.0783 6 14.0609 6 13V4Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M12 17V22" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M8 22H16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+const DiamondIcon = () => (
+  <svg className="w-full h-full" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M6 3H18L22 9L12 21L2 9L6 3Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M2 9H22" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M12 3L8 9L12 21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M12 3L16 9L12 21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
   </svg>
 );
 
-const FutureIcon = () => (
-  <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M12 2L2 7V17C2 17.5304 2.21071 18.0391 2.58579 18.4142C2.96086 18.7893 3.46957 19 4 19H20C20.5304 19 21.0391 18.7893 21.4142 18.4142C21.7893 18.0391 22 17.5304 22 17V7L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M22 7L12 12L2 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M12 22V12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+const InfinityIcon = () => (
+  <svg className="w-full h-full" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M18.178 8C19.784 8 21 9.216 21 10.822C21 12.428 19.784 13.644 18.178 13.644C17.023 13.644 16.105 13.003 15.498 12C14.891 10.997 13.973 10.356 12.818 10.356C11.212 10.356 10 11.572 10 13.178C10 14.784 11.216 16 12.822 16C13.977 16 14.895 15.359 15.502 14.356C16.109 13.353 17.027 12.712 18.182 12.712C19.788 12.712 21.004 11.496 21.004 9.89C21.004 8.284 19.788 7.068 18.182 7.068C17.027 7.068 16.109 7.709 15.502 8.712C14.895 9.715 13.977 10.356 12.822 10.356C11.216 10.356 10 9.14 10 7.534C10 5.928 11.216 4.712 12.822 4.712C13.977 4.712 14.895 5.353 15.502 6.356" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M5.822 16C4.216 16 3 14.784 3 13.178C3 11.572 4.216 10.356 5.822 10.356C6.977 10.356 7.895 10.997 8.502 12C9.109 13.003 10.027 13.644 11.182 13.644C12.788 13.644 14.004 12.428 14.004 10.822C14.004 9.216 12.788 8 11.182 8C10.027 8 9.109 8.641 8.502 9.644" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
   </svg>
 );
 
@@ -74,7 +69,8 @@ export default function AboutSection() {
     {
       title: t("about.card1.title"),
       content: t("about.card1.content"),
-      icon: <RocketIcon />,
+      tags: ["AI Native", "3 Humans", "∞ Agents"],
+      icon: <SparkleIcon />,
       gradient: "from-blue-500 to-cyan-500",
       shape: "hexagon",
       align: "left"
@@ -82,7 +78,8 @@ export default function AboutSection() {
     {
       title: t("about.card2.title"),
       content: t("about.card2.content"),
-      icon: <TargetIcon />,
+      tags: ["No-Code", "For Everyone", "Innovation"],
+      icon: <LightbulbIcon />,
       gradient: "from-purple-500 to-pink-500",
       shape: "circle",
       align: "right"
@@ -90,7 +87,8 @@ export default function AboutSection() {
     {
       title: t("about.card3.title"),
       content: t("about.card3.content"),
-      icon: <TeamIcon />,
+      tags: ["Hybrid Intelligence", "24/7", "Perfect Division"],
+      icon: <GearsIcon />,
       gradient: "from-green-500 to-teal-500",
       shape: "diamond",
       align: "left"
@@ -98,7 +96,8 @@ export default function AboutSection() {
     {
       title: t("about.card4.title"),
       content: t("about.card4.content"),
-      icon: <TrophyIcon />,
+      tags: ["10x Speed", "2-3 Weeks MVP", "Quality"],
+      icon: <DiamondIcon />,
       gradient: "from-yellow-500 to-orange-500",
       shape: "triangle",
       align: "right"
@@ -106,7 +105,8 @@ export default function AboutSection() {
     {
       title: t("about.card5.title"),
       content: t("about.card5.content"),
-      icon: <FutureIcon />,
+      tags: ["Elastic Operations", "Scalable", "Future"],
+      icon: <InfinityIcon />,
       gradient: "from-indigo-500 to-purple-500",
       shape: "pentagon",
       align: "left"
@@ -143,36 +143,53 @@ export default function AboutSection() {
                 }`}
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
-                <div className={`relative overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl border border-gray-700/50 backdrop-blur-sm ${
-                  card.align === 'right' ? 'ml-auto md:mr-12' : 'mr-auto md:ml-12'
-                } max-w-4xl`}>
+                <div className="relative overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl border border-gray-700/50 backdrop-blur-sm w-full max-w-4xl mx-auto">
                   
                   {/* Decorative gradient overlay */}
                   <div className={`absolute inset-0 bg-gradient-to-br ${card.gradient} opacity-[0.02]`} />
                   
-                  {/* Geometric shape decoration */}
-                  <div className={`absolute ${card.align === 'right' ? '-left-6' : '-right-6'} top-1/2 -translate-y-1/2 w-24 h-24 bg-gradient-to-br ${card.gradient} opacity-10 rotate-45 rounded-2xl`} />
+                  {/* Geometric shape decoration - hidden on mobile */}
+                  <div className={`hidden md:block absolute ${card.align === 'right' ? '-left-6' : '-right-6'} top-1/2 -translate-y-1/2 w-24 h-24 bg-gradient-to-br ${card.gradient} opacity-10 rotate-45 rounded-2xl`} />
                   
                   {/* Content */}
-                  <div className="relative p-8 md:p-12">
-                    <div className={`flex items-start gap-6 ${card.align === 'right' ? 'flex-row-reverse' : ''}`}>
-                      {/* Icon container */}
-                      <div className={`flex-shrink-0 w-16 h-16 bg-gradient-to-br ${card.gradient} rounded-2xl flex items-center justify-center text-white shadow-lg`}>
-                        {card.icon}
-                      </div>
-                      
-                      {/* Text content */}
-                      <div className="flex-1">
-                        <h3 className={`text-2xl md:text-3xl font-bold bg-gradient-to-r ${card.gradient} bg-clip-text text-transparent mb-4 ${
+                  <div className="relative p-6 md:p-12">
+                    <div className="flex flex-col gap-4 md:gap-6">
+                      {/* Title with bar */}
+                      <div className={`flex items-center gap-3 md:gap-4 ${
+                        card.align === 'right' ? 'flex-row-reverse' : ''
+                      }`}>
+                        <div className={`text-3xl md:text-4xl font-light bg-gradient-to-r ${card.gradient} bg-clip-text text-transparent`}>
+                          |
+                        </div>
+                        <h3 className={`text-xl md:text-3xl font-bold bg-gradient-to-r ${card.gradient} bg-clip-text text-transparent ${
                           card.align === 'right' ? 'text-right' : 'text-left'
                         }`}>
                           {card.title}
                         </h3>
-                        <p className={`text-gray-300 text-lg leading-relaxed ${
-                          card.align === 'right' ? 'text-right' : 'text-left'
-                        }`}>
-                          {card.content}
-                        </p>
+                      </div>
+                      
+                      {/* Text content */}
+                      <p className={`text-gray-300 text-base md:text-lg leading-relaxed ${
+                        card.align === 'right' ? 'text-right' : 'text-left'
+                      }`} style={{ whiteSpace: 'pre-line' }}>
+                        {card.content}
+                      </p>
+                      
+                      {/* Tags */}
+                      <div className={`flex flex-wrap gap-2 md:gap-3 ${
+                        card.align === 'right' ? 'justify-end' : 'justify-start'
+                      }`}>
+                        {card.tags.map((tag, tagIndex) => (
+                          <span 
+                            key={tagIndex}
+                            className={`px-3 md:px-4 py-1 md:py-2 rounded-full text-xs md:text-sm font-medium text-white border border-white/10`}
+                            style={{
+                              background: `linear-gradient(to right, ${card.gradient.includes('blue') ? 'rgba(59, 130, 246, 0.1)' : card.gradient.includes('purple') ? 'rgba(168, 85, 247, 0.1)' : card.gradient.includes('green') ? 'rgba(34, 197, 94, 0.1)' : card.gradient.includes('yellow') ? 'rgba(250, 204, 21, 0.1)' : 'rgba(99, 102, 241, 0.1)'}, ${card.gradient.includes('cyan') ? 'rgba(6, 182, 212, 0.1)' : card.gradient.includes('pink') ? 'rgba(236, 72, 153, 0.1)' : card.gradient.includes('teal') ? 'rgba(20, 184, 166, 0.1)' : card.gradient.includes('orange') ? 'rgba(251, 146, 60, 0.1)' : 'rgba(168, 85, 247, 0.1)'})`
+                            }}
+                          >
+                            {tag}
+                          </span>
+                        ))}
                       </div>
                     </div>
                   </div>
