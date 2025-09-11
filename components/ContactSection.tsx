@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import emailjs from "@emailjs/browser";
 
 export default function ContactSection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -15,11 +14,6 @@ export default function ContactSection() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
-
-  // EmailJS 초기화
-  useEffect(() => {
-    emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "");
-  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -47,32 +41,17 @@ export default function ContactSection() {
     setSubmitStatus("idle");
     
     try {
-      // EmailJS로 이메일 전송
-      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "";
-      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "";
+      // Netlify Forms 전송
+      const formElement = e.target as HTMLFormElement;
+      const formData = new FormData(formElement);
       
-      if (!serviceId || !templateId) {
-        console.error("EmailJS configuration is missing");
-        setSubmitStatus("error");
-        setIsSubmitting(false);
-        return;
-      }
+      const response = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData as unknown as Record<string, string>).toString()
+      });
 
-      const templateParams = {
-        from_name: formData.name,
-        from_email: formData.email,
-        company: formData.company || "개인",
-        message: formData.message,
-        to_email: "contact@hasia.ai", // 받는 이메일 주소
-      };
-
-      const response = await emailjs.send(
-        serviceId,
-        templateId,
-        templateParams
-      );
-
-      if (response.status === 200) {
+      if (response.ok) {
         setSubmitStatus("success");
         setFormData({ name: "", email: "", company: "", message: "" });
         
@@ -84,7 +63,7 @@ export default function ContactSection() {
         setSubmitStatus("error");
       }
     } catch (error) {
-      console.error("Failed to send email:", error);
+      console.error("Failed to submit form:", error);
       setSubmitStatus("error");
       
       // 3초 후 에러 상태 리셋
@@ -132,7 +111,21 @@ export default function ContactSection() {
                 {t("contact.description")}
               </p>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form 
+                name="contact" 
+                method="POST" 
+                data-netlify="true"
+                netlify-honeypot="bot-field"
+                onSubmit={handleSubmit} 
+                className="space-y-6"
+              >
+                {/* Hidden fields for Netlify Forms */}
+                <input type="hidden" name="form-name" value="contact" />
+                <div style={{ display: "none" }}>
+                  <label>
+                    Don&apos;t fill this out if you&apos;re human: <input name="bot-field" />
+                  </label>
+                </div>
                 {/* Modern floating label inputs */}
                 <div className="relative group">
                   <input
