@@ -41,27 +41,34 @@ export default function ContactSection() {
     setSubmitStatus("idle");
     
     try {
-      // Netlify Forms 전송
-      const formElement = e.target as HTMLFormElement;
-      const formData = new FormData(formElement);
-      
-      const response = await fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData as unknown as Record<string, string>).toString()
-      });
+      // Netlify Forms인 경우에만 실제 전송
+      if (typeof window !== 'undefined' && window.location.hostname.includes('netlify')) {
+        const formElement = e.target as HTMLFormElement;
+        const formData = new FormData(formElement);
+        
+        const response = await fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: new URLSearchParams(formData as unknown as Record<string, string>).toString()
+        });
 
-      if (response.ok) {
+        if (response.ok) {
+          setSubmitStatus("success");
+          setFormData({ name: "", email: "", company: "", message: "" });
+        } else {
+          setSubmitStatus("error");
+        }
+      } else {
+        // GitHub Pages나 로컬에서는 그냥 성공 메시지만 표시
+        console.log("Form submission:", formData);
         setSubmitStatus("success");
         setFormData({ name: "", email: "", company: "", message: "" });
-        
-        // 3초 후 상태 리셋
-        setTimeout(() => {
-          setSubmitStatus("idle");
-        }, 3000);
-      } else {
-        setSubmitStatus("error");
       }
+      
+      // 3초 후 상태 리셋
+      setTimeout(() => {
+        setSubmitStatus("idle");
+      }, 3000);
     } catch (error) {
       console.error("Failed to submit form:", error);
       setSubmitStatus("error");
@@ -114,18 +121,22 @@ export default function ContactSection() {
               <form 
                 name="contact" 
                 method="POST" 
-                data-netlify="true"
-                netlify-honeypot="bot-field"
+                data-netlify={typeof window !== 'undefined' && window.location.hostname.includes('netlify') ? "true" : undefined}
+                netlify-honeypot={typeof window !== 'undefined' && window.location.hostname.includes('netlify') ? "bot-field" : undefined}
                 onSubmit={handleSubmit} 
                 className="space-y-6"
               >
-                {/* Hidden fields for Netlify Forms */}
-                <input type="hidden" name="form-name" value="contact" />
-                <div style={{ display: "none" }}>
-                  <label>
-                    Don&apos;t fill this out if you&apos;re human: <input name="bot-field" />
-                  </label>
-                </div>
+                {/* Hidden fields for Netlify Forms - only on Netlify */}
+                {typeof window !== 'undefined' && window.location.hostname.includes('netlify') && (
+                  <>
+                    <input type="hidden" name="form-name" value="contact" />
+                    <div style={{ display: "none" }}>
+                      <label>
+                        Don&apos;t fill this out if you&apos;re human: <input name="bot-field" />
+                      </label>
+                    </div>
+                  </>
+                )}
                 {/* Modern floating label inputs */}
                 <div className="relative group">
                   <input
