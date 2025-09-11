@@ -24,8 +24,9 @@ export default function Icon() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          color: '#00FF88',
-          fontWeight: 'bold',
+          color: '#00ff00',
+          fontWeight: 900,
+          fontFamily: 'Arial Black, sans-serif',
         }}
       >
         H
