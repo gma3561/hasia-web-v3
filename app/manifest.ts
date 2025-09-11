@@ -11,17 +11,6 @@ export default function manifest(): MetadataRoute.Manifest {
     display: 'standalone',
     background_color: '#000000',
     theme_color: '#00FF88',
-    icons: [
-      {
-        src: '/hasia-web-v3/icon',
-        sizes: '32x32',
-        type: 'image/png',
-      },
-      {
-        src: '/hasia-web-v3/apple-icon',
-        sizes: '180x180',
-        type: 'image/png',
-      },
-    ],
+    icons: [],
   }
 }
