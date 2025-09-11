@@ -13,12 +13,12 @@ export default function manifest(): MetadataRoute.Manifest {
     theme_color: '#00FF88',
     icons: [
       {
-        src: '/icon',
+        src: '/hasia-web-v3/icon',
         sizes: '32x32',
         type: 'image/png',
       },
       {
-        src: '/apple-icon',
+        src: '/hasia-web-v3/apple-icon',
         sizes: '180x180',
         type: 'image/png',
       },
