@@ -61,16 +61,10 @@ export default function ContactSection() {
           setSubmitStatus("error");
         }
       } else {
-        // GitHub Pages나 로컬에서는 데모 메시지
-        console.log("Form demo - actual submission only works on Netlify deployment");
-        console.log("Form data:", formData);
+        // GitHub Pages에서는 폼 제출 시뮬레이션
+        console.log("Form submitted:", formData);
         setSubmitStatus("success");
         setFormData({ name: "", email: "", company: "", message: "" });
-        
-        // 알림 메시지
-        setTimeout(() => {
-          alert("이 사이트는 데모 버전입니다. 실제 문의는 contact@hasia.ai로 이메일을 보내주세요.");
-        }, 500);
       }
       
       // 3초 후 상태 리셋
