@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import emailjs from "@emailjs/browser";
 
 export default function ContactSection() {
   const [isVisible, setIsVisible] = useState(false);
