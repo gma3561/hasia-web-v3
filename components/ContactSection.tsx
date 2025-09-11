@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import emailjs from "@emailjs/browser";
 
 export default function ContactSection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -14,6 +15,11 @@ export default function ContactSection() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+
+  // EmailJS 초기화
+  useEffect(() => {
+    emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "");
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -38,18 +44,56 @@ export default function ContactSection() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitStatus("idle");
     
-    // 실제 구현 시 여기에 API 호출 로직 추가
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitStatus("success");
-      setFormData({ name: "", email: "", company: "", message: "" });
+    try {
+      // EmailJS로 이메일 전송
+      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "";
+      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "";
       
-      // 3초 후 상태 리셋
+      if (!serviceId || !templateId) {
+        console.error("EmailJS configuration is missing");
+        setSubmitStatus("error");
+        setIsSubmitting(false);
+        return;
+      }
+
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        company: formData.company || "개인",
+        message: formData.message,
+        to_email: "contact@hasia.ai", // 받는 이메일 주소
+      };
+
+      const response = await emailjs.send(
+        serviceId,
+        templateId,
+        templateParams
+      );
+
+      if (response.status === 200) {
+        setSubmitStatus("success");
+        setFormData({ name: "", email: "", company: "", message: "" });
+        
+        // 3초 후 상태 리셋
+        setTimeout(() => {
+          setSubmitStatus("idle");
+        }, 3000);
+      } else {
+        setSubmitStatus("error");
+      }
+    } catch (error) {
+      console.error("Failed to send email:", error);
+      setSubmitStatus("error");
+      
+      // 3초 후 에러 상태 리셋
       setTimeout(() => {
         setSubmitStatus("idle");
       }, 3000);
-    }, 1000);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
