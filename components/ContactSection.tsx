@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import emailjs from "@emailjs/browser";
 
 export default function ContactSection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -13,8 +12,16 @@ export default function ContactSection() {
     company: "",
     message: ""
   });
+  // Honeypot fields (봇 감지용)
+  const [honeypot, setHoneypot] = useState({
+    website: "",
+    phone: "",
+    url: ""
+  });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+  const [submitAttempts, setSubmitAttempts] = useState(0);
+  const [lastSubmitTime, setLastSubmitTime] = useState(0);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -36,36 +43,115 @@ export default function ContactSection() {
     return () => observer.disconnect();
   }, []);
 
+  // 입력 검증 함수
+  const validateInput = () => {
+    // 이메일 형식 검증
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      return "올바른 이메일 주소를 입력해주세요.";
+    }
+    
+    // 이름 검증 (특수문자 제한)
+    const nameRegex = /^[a-zA-Z가-힣\s\-\.]{2,100}$/;
+    if (!nameRegex.test(formData.name)) {
+      return "이름은 2-100자의 한글, 영문, 공백만 가능합니다.";
+    }
+    
+    // 메시지 길이 검증
+    if (formData.message.length < 10) {
+      return "메시지는 최소 10자 이상 입력해주세요.";
+    }
+    
+    if (formData.message.length > 5000) {
+      return "메시지는 5000자를 초과할 수 없습니다.";
+    }
+    
+    // 회사명 검증 (선택사항)
+    if (formData.company && formData.company.length > 200) {
+      return "회사명은 200자를 초과할 수 없습니다.";
+    }
+    
+    return null;
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Rate limiting (클라이언트 측)
+    const now = Date.now();
+    if (now - lastSubmitTime < 5000) { // 5초 제한
+      setSubmitStatus("error");
+      alert("잠시 후 다시 시도해주세요.");
+      return;
+    }
+    
+    // 제출 시도 횟수 체크
+    if (submitAttempts >= 10) {
+      setSubmitStatus("error");
+      alert("너무 많은 시도가 감지되었습니다. 잠시 후 다시 시도해주세요.");
+      return;
+    }
+    
+    // Honeypot 체크 (봇 감지)
+    if (honeypot.website || honeypot.phone || honeypot.url) {
+      // 봇으로 감지됨 - 사용자에게는 성공으로 보이게 하되 실제로는 전송하지 않음
+      console.warn("Bot detected via honeypot");
+      setSubmitStatus("success");
+      setTimeout(() => setSubmitStatus("idle"), 3000);
+      return;
+    }
+    
+    // 입력 검증
+    const validationError = validateInput();
+    if (validationError) {
+      alert(validationError);
+      return;
+    }
+    
     setIsSubmitting(true);
     setSubmitStatus("idle");
+    setSubmitAttempts(prev => prev + 1);
+    setLastSubmitTime(now);
     
     try {
-      // Netlify에서만 실제 전송
-      const isNetlify = typeof window !== 'undefined' && window.location.hostname.includes('netlify');
+      // Google Apps Script Web App URL
+      const GOOGLE_SCRIPT_URL = process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_URL || 
+        'https://script.google.com/macros/s/AKfycbzJisOkDsCmg3LZXUZ-05hi0TWxfjLS8tbDEqNHXiStI_IzEQXB4-eQ1OPrrjnLCUPw/exec';
       
-      if (isNetlify) {
-        const formElement = e.target as HTMLFormElement;
-        const formData = new FormData(formElement);
-        
-        const response = await fetch("/", {
-          method: "POST",
-          headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: new URLSearchParams(formData as unknown as Record<string, string>).toString()
+      // Honeypot 필드를 포함한 데이터 전송 (서버에서 추가 검증)
+      const submissionData = {
+        ...formData,
+        // Honeypot fields
+        website: honeypot.website,
+        phone: honeypot.phone,
+        url: honeypot.url,
+        // 메타데이터
+        userAgent: navigator.userAgent,
+        timestamp: new Date().toISOString()
+      };
+      
+      // Google Apps Script로 전송
+      await fetch(GOOGLE_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors", // CORS 정책 우회
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(submissionData)
+      });
+      
+      // no-cors 모드에서는 response를 읽을 수 없으므로 무조건 성공으로 처리
+      // 실제 에러는 Google Apps Script 로그에서 확인
+      setSubmitStatus("success");
+      setFormData({ name: "", email: "", company: "", message: "" });
+      setHoneypot({ website: "", phone: "", url: "" });
+      
+      // 개발 환경에서 로그
+      if (process.env.NODE_ENV === 'development') {
+        console.log("Form submitted with security checks:", {
+          ...formData,
+          honeypotTriggered: !!(honeypot.website || honeypot.phone || honeypot.url)
         });
-
-        if (response.ok) {
-          setSubmitStatus("success");
-          setFormData({ name: "", email: "", company: "", message: "" });
-        } else {
-          setSubmitStatus("error");
-        }
-      } else {
-        // GitHub Pages에서는 폼 제출 시뮬레이션
-        console.log("Form submitted:", formData);
-        setSubmitStatus("success");
-        setFormData({ name: "", email: "", company: "", message: "" });
       }
       
       // 3초 후 상태 리셋
@@ -124,22 +210,36 @@ export default function ContactSection() {
               <form 
                 name="contact" 
                 method="POST" 
-                data-netlify={typeof window !== 'undefined' && window.location.hostname.includes('netlify') ? "true" : undefined}
-                netlify-honeypot={typeof window !== 'undefined' && window.location.hostname.includes('netlify') ? "bot-field" : undefined}
                 onSubmit={handleSubmit} 
                 className="space-y-6"
               >
-                {/* Hidden fields for Netlify Forms - only on Netlify */}
-                {typeof window !== 'undefined' && window.location.hostname.includes('netlify') && (
-                  <>
-                    <input type="hidden" name="form-name" value="contact" />
-                    <div style={{ display: "none" }}>
-                      <label>
-                        Don&apos;t fill this out if you&apos;re human: <input name="bot-field" />
-                      </label>
-                    </div>
-                  </>
-                )}
+                {/* Honeypot fields - 봇 감지용 (숨겨진 필드) */}
+                <div style={{ position: "absolute", left: "-5000px" }} aria-hidden="true">
+                  <input
+                    type="text"
+                    name="website"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    value={honeypot.website}
+                    onChange={(e) => setHoneypot({...honeypot, website: e.target.value})}
+                  />
+                  <input
+                    type="text"
+                    name="phone"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    value={honeypot.phone}
+                    onChange={(e) => setHoneypot({...honeypot, phone: e.target.value})}
+                  />
+                  <input
+                    type="text"
+                    name="url"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    value={honeypot.url}
+                    onChange={(e) => setHoneypot({...honeypot, url: e.target.value})}
+                  />
+                </div>
                 {/* Modern floating label inputs */}
                 <div className="relative group">
                   <input
@@ -148,6 +248,10 @@ export default function ContactSection() {
                     value={formData.name}
                     onChange={handleChange}
                     required
+                    maxLength={100}
+                    minLength={2}
+                    pattern="[a-zA-Z가-힣\s\-\.]{2,100}"
+                    title="이름은 2-100자의 한글, 영문, 공백만 가능합니다."
                     className="peer w-full px-4 py-4 bg-black/50 backdrop-blur-sm border border-white/10 rounded-xl text-white placeholder-transparent focus:outline-none focus:border-primary/60 transition-all duration-300 hover:border-white/20"
                     placeholder={t("contact.form.name")}
                   />
@@ -164,6 +268,9 @@ export default function ContactSection() {
                     value={formData.email}
                     onChange={handleChange}
                     required
+                    maxLength={254}
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                    title="올바른 이메일 주소를 입력해주세요."
                     className="peer w-full px-4 py-4 bg-black/50 backdrop-blur-sm border border-white/10 rounded-xl text-white placeholder-transparent focus:outline-none focus:border-primary/60 transition-all duration-300 hover:border-white/20"
                     placeholder={t("contact.form.email")}
                   />
@@ -179,6 +286,7 @@ export default function ContactSection() {
                     name="company"
                     value={formData.company}
                     onChange={handleChange}
+                    maxLength={200}
                     className="peer w-full px-4 py-4 bg-black/50 backdrop-blur-sm border border-white/10 rounded-xl text-white placeholder-transparent focus:outline-none focus:border-primary/60 transition-all duration-300 hover:border-white/20"
                     placeholder={t("contact.form.company")}
                   />
@@ -194,10 +302,34 @@ export default function ContactSection() {
                     value={formData.message}
                     onChange={handleChange}
                     required
+                    minLength={10}
+                    maxLength={5000}
                     rows={5}
-                    className="peer w-full px-4 py-4 bg-black/50 backdrop-blur-sm border border-white/10 rounded-xl text-white placeholder-transparent focus:outline-none focus:border-primary/60 transition-all duration-300 hover:border-white/20 resize-none"
+                    className={`peer w-full px-4 py-4 bg-black/50 backdrop-blur-sm border ${
+                      formData.message.length > 0 && formData.message.length < 10 
+                        ? 'border-red-500/50' 
+                        : 'border-white/10'
+                    } rounded-xl text-white placeholder-transparent focus:outline-none focus:border-primary/60 transition-all duration-300 hover:border-white/20 resize-none`}
                     placeholder={t("contact.form.message")}
                   />
+                  {/* 글자 수 표시 및 경고 메시지 */}
+                  <div className="absolute bottom-2 right-2 text-xs">
+                    <span className={
+                      formData.message.length > 0 && formData.message.length < 10 
+                        ? 'text-red-400' 
+                        : formData.message.length >= 4900 
+                        ? 'text-yellow-400'
+                        : 'text-white/30'
+                    }>
+                      {formData.message.length} / 5000
+                    </span>
+                  </div>
+                  {/* 실시간 안내 메시지 */}
+                  {formData.message.length > 0 && formData.message.length < 10 && (
+                    <div className="absolute -bottom-6 left-0 text-xs text-red-400 animate-pulse">
+                      ⚠️ 최소 10자 이상 입력해주세요 (현재 {formData.message.length}자)
+                    </div>
+                  )}
                   <label className="absolute left-4 top-4 text-white/40 transition-all duration-300 peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:-top-2 peer-focus:left-3 peer-focus:text-xs peer-focus:text-primary-light peer-focus:bg-gray-900 peer-focus:px-1 peer-[:not(:placeholder-shown)]:-top-2 peer-[:not(:placeholder-shown)]:left-3 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:bg-gray-900 peer-[:not(:placeholder-shown)]:px-1">
                     {t("contact.form.message")}
                   </label>
@@ -207,11 +339,15 @@ export default function ContactSection() {
                 {/* Modern submit button with hover effect */}
                 <button
                   type="submit"
-                  disabled={isSubmitting}
+                  disabled={isSubmitting || (formData.message.length > 0 && formData.message.length < 10)}
                   className="relative w-full group overflow-hidden"
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary-light to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  <div className="relative w-full py-4 bg-gradient-to-r from-primary to-primary-light rounded-xl font-medium transition-all duration-300 group-hover:shadow-[0_0_30px_rgba(0,238,255,0.3)]">
+                  <div className={`relative w-full py-4 rounded-xl font-medium transition-all duration-300 ${
+                    isSubmitting || (formData.message.length > 0 && formData.message.length < 10)
+                      ? 'bg-gray-600 cursor-not-allowed opacity-50'
+                      : 'bg-gradient-to-r from-primary to-primary-light group-hover:shadow-[0_0_30px_rgba(0,238,255,0.3)]'
+                  }`}>
                     <span className="relative z-10 text-white flex items-center justify-center gap-2">
                       {isSubmitting ? (
                         <>
