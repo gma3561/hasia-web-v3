@@ -27,7 +27,7 @@ const translations = {
     // About Section
     "about.title": "About HASIA",
     "about.card1.title": "Birth of an AI Native Company",
-    "about.card1.content": "Founded in 2025, HASIA operates with 3 non-developers working alongside infinite AI agents, building innovative solutions at unprecedented speed. We have completely redefined the traditional development team structure. Instead of dozens of developers, we create faster, more efficient, and more creative results through perfect collaboration with AI.",
+    "about.card1.content": "Founded in 2025, HASIA operates with 3 team members working alongside infinite AI agents, building innovative solutions at unprecedented speed. We have completely redefined the traditional development team structure. Instead of dozens of developers, we create faster, more efficient, and more creative results through perfect collaboration with AI.",
     "about.card2.title": "Democratizing Technology",
     "about.card2.content": "\"Technology should empower everyone.\"\n\nWe're creating a world where anyone can be a creator, regardless of coding ability. When technical barriers disappear, real innovation begins. We're opening an era where business experts can build solutions directly, designers can implement their visions immediately, and founders can turn ideas into products instantly.",
     "about.card3.title": "New Collaboration Model",
@@ -99,7 +99,7 @@ const translations = {
     // About Section
     "about.title": "About HASIA",
     "about.card1.title": "AI 네이티브 기업의 탄생",
-    "about.card1.content": "2025년 설립된 HASIA는 비개발자 3명이 무한대의 AI 에이전트와 함께 일하며, 전례 없는 속도로 혁신적인 솔루션을 구축합니다. 우리는 전통적인 개발 팀 구조를 완전히 재정의했습니다. 수십 명의 개발자 대신, AI와의 완벽한 협업을 통해 더 빠르고, 더 효율적이며, 더 창의적인 결과물을 만들어냅니다.",
+    "about.card1.content": "2025년 설립된 HASIA는 3명의 팀원이 무한대의 AI 에이전트와 함께 일하며, 전례 없는 속도로 혁신적인 솔루션을 구축합니다. 우리는 전통적인 개발 팀 구조를 완전히 재정의했습니다. 수십 명의 개발자 대신, AI와의 완벽한 협업을 통해 더 빠르고, 더 효율적이며, 더 창의적인 결과물을 만들어냅니다.",
     "about.card2.title": "기술 민주화의 실현",
     "about.card2.content": "\"기술은 모든 사람에게 힘을 실어주어야 한다.\"\n\n코딩 능력이 없어도 누구나 창조자가 될 수 있는 세상을 만들어갑니다. 기술적 장벽이 사라지면, 진짜 혁신이 시작됩니다. 비즈니스 전문가가 직접 솔루션을 구축하고, 디자이너가 자신의 비전을 즉시 구현하며, 창업자가 아이디어를 바로 제품으로 만들 수 있는 시대를 열어가고 있습니다.",
     "about.card3.title": "새로운 협업 모델",
