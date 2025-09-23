@@ -1,11 +1,13 @@
+import { SITE_URL } from "@/site.config";
+
 export default function JsonLd() {
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "HASIA",
     "description": "AI Native Company - Building tomorrow with AI, today",
-    "url": "https://hyem-nim.github.io/hasia-website-final",
-    "logo": "https://hyem-nim.github.io/hasia-website-final/logo.png",
+    "url": SITE_URL,
+    "logo": `${SITE_URL.replace(/\/$/, '')}/og-image.png`,
     "foundingDate": "2025",
     "founders": [
       {
@@ -29,10 +31,10 @@ export default function JsonLd() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "HASIA",
-    "url": "https://hyem-nim.github.io/hasia-website-final",
+    "url": SITE_URL,
     "potentialAction": {
       "@type": "SearchAction",
-      "target": "https://hyem-nim.github.io/hasia-website-final/search?q={search_term_string}",
+      "target": `${SITE_URL.replace(/\/$/, '')}/search?q={search_term_string}`,
       "query-input": "required name=search_term_string"
     }
   };

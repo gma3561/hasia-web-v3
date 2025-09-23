@@ -1,17 +1,15 @@
 import type { NextConfig } from "next";
-
-const isProd = process.env.NODE_ENV === 'production';
-const isNetlify = process.env.NEXT_PUBLIC_DEPLOY_TARGET === 'netlify';
+import { PATH_PREFIX } from "./site.config";
 
 const nextConfig: NextConfig = {
-  output: 'export',
-  // Netlify는 basePath 불필요, GitHub Pages만 필요
-  basePath: isProd && !isNetlify ? '/hasia-web-v3' : '',
-  assetPrefix: isProd && !isNetlify ? '/hasia-web-v3' : '',
+  output: "export",
+  // GitHub Pages 프로젝트 사이트의 경우 리포지토리 경로를 prefix로 사용
+  basePath: PATH_PREFIX,
+  assetPrefix: PATH_PREFIX,
   trailingSlash: true,
   images: {
-    unoptimized: true
-  }
+    unoptimized: true,
+  },
 };
 
 export default nextConfig;

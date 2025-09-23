@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SITE_URL } from "@/site.config";
 import { Inter } from "next/font/google";
 import "@fontsource/pretendard";
 import "./globals.css";
@@ -14,7 +15,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://hyem-nim.github.io/hasia-web-v3'),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "HASIA - AI Native Company",
     template: "%s | HASIA"
@@ -32,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "HASIA - AI Native Company",
     description: "Building tomorrow with AI, today. Transform your business with infinite AI agents.",
-    url: "https://hyem-nim.github.io/hasia-web-v3",
+    url: SITE_URL,
     siteName: "HASIA",
     images: [
       {

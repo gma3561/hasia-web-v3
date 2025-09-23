@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next'
+import { SITE_URL } from '@/site.config'
 
 export const dynamic = 'force-static'
 
@@ -15,6 +16,6 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
       },
     ],
-    sitemap: 'https://hyem-nim.github.io/hasia-website-final/sitemap.xml',
+    sitemap: `${SITE_URL.replace(/\/$/, '')}/sitemap.xml`,
   }
 }
