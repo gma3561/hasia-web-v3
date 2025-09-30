@@ -5,14 +5,14 @@ import { useLanguage } from "@/contexts/LanguageContext";
 
 // Service Icon Components
 const ConsultingIcon = () => (
-  <svg className="w-full h-full" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg className="w-6 h-6 md:w-8 md:h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M12 2C9.5 2 7.5 4 7.5 6.5C6 6.5 4.5 8 4.5 10C3 10 2 11.5 2 13.5C2 16 3.5 18 6 18.5V22H18V18.5C20.5 18 22 16 22 13.5C22 11.5 21 10 19.5 10C19.5 8 18 6.5 16.5 6.5C16.5 4 14.5 2 12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
     <path d="M8 14H9M12 14H13M16 14H17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
   </svg>
 );
 
 const PrototypeIcon = () => (
-  <svg className="w-full h-full" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg className="w-6 h-6 md:w-8 md:h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M21 16V8C20.9996 7.64928 20.9071 7.30481 20.7315 7.00116C20.556 6.69751 20.3037 6.44536 20 6.27L13 2.27C12.696 2.09446 12.3511 2.00205 12 2.00205C11.6489 2.00205 11.304 2.09446 11 2.27L4 6.27C3.69626 6.44536 3.44398 6.69751 3.26846 7.00116C3.09294 7.30481 3.00036 7.64928 3 8V16C3.00036 16.3507 3.09294 16.6952 3.26846 16.9988C3.44398 17.3025 3.69626 17.5546 4 17.73L11 21.73C11.304 21.9055 11.6489 21.9979 12 21.9979C12.3511 21.9979 12.696 21.9055 13 21.73L20 17.73C20.3037 17.5546 20.556 17.3025 20.7315 16.9988C20.9071 16.6952 20.9996 16.3507 21 16Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
     <path d="M3.27 6.96L12 12.01L20.73 6.96" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
     <path d="M12 22.08V12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -20,7 +20,7 @@ const PrototypeIcon = () => (
 );
 
 const ProductIcon = () => (
-  <svg className="w-full h-full" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg className="w-6 h-6 md:w-8 md:h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M4.5 16.5C3 18 3 20 3 20S5 20 6.5 18.5L9 16L8 13L5 12L4.5 16.5Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
     <path d="M12 15L8 11L17.29 1.71C17.6806 1.31947 18.2131 1.10073 18.77 1.10073C19.3269 1.10073 19.8594 1.31947 20.25 1.71C20.6405 2.10053 20.8593 2.63307 20.8593 3.19C20.8593 3.74693 20.6405 4.27947 20.25 4.67L11 14L12 15Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
     <path d="M9 11L6 8C6 8 9 3 15 3L14 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -196,12 +196,10 @@ export default function ServicesSection() {
                           service.align === 'right' ? 'flex-row-reverse' : ''
                         }`}>
                           {/* Service Icon with gradient background */}
-                          <div className="relative">
+                          <div className="relative flex-shrink-0">
                             <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} blur-lg opacity-20`} />
                             <div className={`relative w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-black/50 to-black/30 backdrop-blur-sm rounded-2xl flex items-center justify-center border border-white/10 group-hover:border-white/20 transition-all duration-500`}>
-                              <div className={`w-6 h-6 md:w-8 md:h-8 text-white`}>
-                                {service.icon}
-                              </div>
+                              {service.icon}
                             </div>
                           </div>
                           

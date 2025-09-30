@@ -134,11 +134,11 @@ export default function AboutSection() {
           </div>
 
           {/* Cards with creative layouts */}
-          <div className="space-y-8">
+          <div className="space-y-12">
             {cards.map((card, index) => (
               <div
                 key={index}
-                className={`group relative transition-all duration-500 ${
+                className={`group relative transition-all duration-500 hover:scale-[1.02] ${
                   isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                 }`}
                 style={{ transitionDelay: `${index * 100}ms` }}
@@ -146,7 +146,7 @@ export default function AboutSection() {
                 {/* Modern card with 3D effect and gradient border */}
                 <div className="relative w-full max-w-4xl mx-auto">
                   {/* Animated gradient border */}
-                  <div className={`absolute -inset-[1px] bg-gradient-to-r ${card.gradient} rounded-2xl opacity-0 group-hover:opacity-30 blur-sm transition-all duration-500`} />
+                  <div className={`absolute -inset-[2px] bg-gradient-to-r ${card.gradient} rounded-2xl opacity-0 group-hover:opacity-40 blur transition-all duration-500`} />
                   
                   {/* Card container with glass morphism */}
                   <div className="relative overflow-hidden bg-black/40 backdrop-blur-xl rounded-2xl border border-white/10 group-hover:border-white/20 transition-all duration-500">
@@ -158,7 +158,7 @@ export default function AboutSection() {
                     <div className={`absolute ${card.align === 'right' ? 'right-0' : 'left-0'} top-0 bottom-0 w-[1px] bg-gradient-to-b ${card.gradient} opacity-30`} />
                     
                     {/* Content */}
-                    <div className="relative p-8 md:p-12">
+                    <div className="relative p-6 md:p-10">
                       <div className="flex flex-col gap-6">
                         {/* Number badge with title */}
                         <div className={`flex items-start gap-6 ${
@@ -213,8 +213,8 @@ export default function AboutSection() {
                     </div>
                     
                     {/* Progress indicator */}
-                    <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-white/5">
-                      <div className={`h-full bg-gradient-to-r ${card.gradient} transition-all duration-1000 group-hover:w-full`} style={{ width: '0%' }} />
+                    <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-white/5 overflow-hidden">
+                      <div className={`h-full bg-gradient-to-r ${card.gradient} transition-all duration-700 ease-out w-0 group-hover:w-full`} />
                     </div>
                   </div>
                 </div>

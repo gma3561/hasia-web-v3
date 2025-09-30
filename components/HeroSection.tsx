@@ -15,49 +15,32 @@ export default function HeroSection() {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
       {/* Code Background Pattern */}
       <div className="absolute inset-0">
-        {/* Animated code lines - moderate brightness */}
-        <div className="absolute inset-0 opacity-60">
-          <div className="text-green-300 font-mono text-sm leading-relaxed whitespace-pre overflow-hidden text-center">
+        {/* Animated code lines - optimized brightness */}
+        <div className="absolute inset-0 opacity-40">
+          <div className="text-green-300 font-mono text-xs md:text-sm leading-relaxed whitespace-pre overflow-hidden text-center">
             <div className="animate-slide-up">
               {`const buildFuture = async () => {
   const team = ['human', 'human', 'human'];
   const aiAgents = Array(Infinity).fill('AI');
-  
+
   while (true) {
     await innovate();
-    await execute(speed: '10x');
+    await execute({ speed: '10x' });
     await deliver();
   }
 };
 
-function transformBusiness(company) {
-  return company
-    .addAI()
-    .accelerate()
-    .scale();
-}
-
 const HASIA = {
   vision: 'AI-powered tomorrow',
   execution: 'today',
-  speed: 10 * traditional,
+  speed: 10,
   agents: Infinity
 };
 
-async function createWithoutCode() {
+async function createWithAI() {
   const idea = await imagine();
   const product = await AI.build(idea);
   return launch(product);
-}
-
-// Building the future, one AI at a time
-const revolution = startsWith(3);
-const possibilities = limitless();
-
-while (dreaming) {
-  create();
-  iterate();
-  disrupt();
 }
 
 class Innovation {
@@ -65,9 +48,9 @@ class Innovation {
     this.humans = 3;
     this.ai = unlimited;
   }
-  
+
   execute() {
-    return speed * 10;
+    return this.speed * 10;
   }
 }
 
