@@ -1,5 +1,5 @@
 export const SITE_URL: string =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://hasia.ai";
+  process.env.NEXT_PUBLIC_SITE_URL || "https://gma3561.github.io/hasia-web-v3";
 
 // For GitHub Pages project sites, base path is the repo name
 export const PATH_PREFIX: string = (() => {

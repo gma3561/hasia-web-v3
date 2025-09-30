@@ -3,9 +3,9 @@ import { PATH_PREFIX } from "./site.config";
 
 const nextConfig: NextConfig = {
   output: "export",
-  // Custom domain (hasia.ai) doesn't need basePath
-  basePath: "",
-  assetPrefix: "",
+  // GitHub Pages project site needs basePath until custom domain is working
+  basePath: PATH_PREFIX,
+  assetPrefix: PATH_PREFIX,
   trailingSlash: true,
   images: {
     unoptimized: true,
