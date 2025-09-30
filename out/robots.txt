@@ -7,4 +7,4 @@ Disallow: /_next/
 User-Agent: Googlebot
 Allow: /
 
-Sitemap: https://hyem-nim.github.io/hasia-website-final/sitemap.xml
+Sitemap: https://gma3561.github.io/hasia-web-v3/sitemap.xml
